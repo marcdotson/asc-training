@@ -53,7 +53,7 @@ To get started, complete Jenny Bryan’s [pre-workshop
 set-up](https://happygitwithr.com/workshops.html?mkt_tok=eyJpIjoiT1RVelptVTNZams0T0dZMiIsInQiOiJlR0orVlVpaHZsRlwveWh5QUJPN2U1Q3BcL0pHVHo5RXJ5UkhabFlwVXM4NlEwcHhRTENQZmVxaEEyNnVLSkRFTTdVa0hyNjk4MkFHYUU1Nkt5VXNtRm9heFM3N3dnUFplZ1V5anpRTWdnWDVscE1lOUR6VzBHaGFQOUFhOGd1QkN3In0=#pre-workshop-set-up).
 This can take up to a few hours, so plan accordingly. Note that the
 following Git/GitHub material draws heavily from Jenny Bryan’s training
-on using Git and GitHub from rstudio::conf 2019.
+on using Git and GitHub from rstudio::conf(2019).
 
 ## GitHub Basics
 
@@ -76,8 +76,7 @@ changes you’ve made means you are out-of-sync with the **remote** repo
 click on the files you want to **commit** and click commit. Think of a
 **commit** as saving a snapshot of all of the changes you’ve made across
 these files all at once. Include a clear commit message. You’ll do this
-fairly frequently for your local repo, possibly just **amending** the
-same commit each time.
+fairly frequently for your local repo.
 
 Eventually you’ll be ready for other people to have access to your
 changes on the remote repo. To do this, you’ll click on the green up
@@ -106,9 +105,9 @@ can’t accidentally push changes to it.
 
 To do your work as a collaborator, create a new branch on GitHub with a
 short, descriptive name specific to the issue you’re working on (e.g.,
-`marc-paper-revision`). When you start a work session, make sure you
-select the branch you want to work on from the dropdown in the Git pane
-in RStudio. You can commit, push, and pull as usual to the branch you’re
+`paper-revision`). When you start a work session, make sure you select
+the branch you want to work on from the dropdown in the Git pane in
+RStudio. You can commit, push, and pull as usual to the branch you’re
 working on. When you’ve completed work on the issue associated with the
 branch, create a **pull request** on GitHub and tag me (i.e.,
 `@marcdotson`). This allows me to review what you’ve done, have a
@@ -121,7 +120,7 @@ and repeat.
 Each project has a similar organization. There are certain limitations
 on the size and type of files that can be pushed to GitHub. There are
 also certain things that shouldn’t be accessible by the public (e.g.,
-data we have a licence to access). For these reasons, we have folders
+data we have a license to access). For these reasons, we have folders
 and files that are pushed to GitHub and those that are not.
 
 ### Pushed to GitHub
@@ -131,14 +130,14 @@ and files that are pushed to GitHub and those that are not.
     they are meant to be run in a certain order (e.g.,
     `01_import_data.R`, `02_clean_data.R`).
   - `/Data` While all data live here, only data that are small and can
-    be shared publically will be pushed.
+    be shared publicly will be pushed.
   - `/Figures` Figures live here, including images (saved as PNG files)
     and data referenced or used for tables, for use in the `README`,
     paper, and presentation.
-  - `/Paper` The manuscript of the paper, without any PDF knits,
-    including a specified Creative Commons license.
-  - `/Presentation` Slides for presentations, again without any PDF
-    knits.
+  - `/Presentation` Slides for presentations, without any PDF knits.
+  - `/Writing` The manuscript of the paper (again without any PDF
+    knits), case studies on specific aspects related to the project, and
+    a specified Creative Commons license.
   - `README` The abstract and any project-specific details and
     deviations from this outline.
 
@@ -146,13 +145,13 @@ and files that are pushed to GitHub and those that are not.
 
   - `/Output` Output from model runs. These files tend to be too large.
     They are also something each user can create on their own.
+  - `/Private` A catch-all folder for additional files specific to a
+    project that might not have anywhere else to live.
   - `/Readings` Loose papers that you want to keep track of reading
     locally. GitHub is not a paper management system.
-  - `/Temporary` A catch-all folder for *temporary* files specific to a
-    project that might not have anywhere else to live.
 
-Note that you can create `Output`, `Readings`, and `Temporary` folders
-in your local clone without worrying about them being pushed. We can
+Note that you can create `Output`, `Private`, and `Readings` folders in
+your local clone without worrying about them being pushed. We can
 further modify the `.gitignore` file to add other folders and files that
 aren’t pushed to GitHub.
 
