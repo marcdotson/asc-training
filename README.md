@@ -169,6 +169,4 @@ aren’t pushed to GitHub.
   - [R Markdown
     Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/)
   - [Happy Git and GitHub for the useR](https://happygitwithr.com)
-  - [WTF Workshop at
-    rstudio::conf 2019](https://jennybc.github.io/wtf-2019-rsc/)
   - [What They Forgot to Teach You About R](https://whattheyforgot.org)
