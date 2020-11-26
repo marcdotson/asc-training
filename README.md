@@ -163,8 +163,6 @@ aren’t pushed to GitHub.
 
 ## Links
 
-  - [Academic Research as Software
-    Development](https://www.mathkills.com/words/2019/2/17/academic-research-as-software-development)
   - [Tidyverse Style Guide](https://style.tidyverse.org)
   - [R Markdown: The Definitive
     Guide](https://bookdown.org/yihui/rmarkdown/)
