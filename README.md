@@ -130,7 +130,7 @@ starting a new project, please set up the repo using the
   - `/Code` Each script should do something specific (like tidyverse
     functions), have a descriptive name, and include number prefixes if
     they are meant to be run in a certain order (e.g.,
-    `01_import_data.R`, `02_clean_data.R`).
+    `01_import-data.R`, `02_clean-data.R`).
   - `/Data` While all data live here, only data that are small enough
     and can be shared publicly will be pushed.
   - `/Figures` Figures live here, including images (saved as PNG files)
