@@ -97,9 +97,9 @@ run into commit errors when multiple people have changed the same thing
 at the same time. To largely avoid this problem, among other things, we
 will be using **branches**. Each branch is a separate version of the
 repo that exists in parallel, one where you can make changes or
-experiment without it affecting the working or **master** branch. In
-fact, the master branch is protected so that you can’t accidentally push
-changes to it.
+experiment without it affecting the working or **main** branch. In fact,
+the main branch is protected so that you can’t accidentally push changes
+to it.
 
 To do your work as a collaborator, create a new branch on GitHub with a
 short, descriptive name specific to the issue you’re working on (e.g.,
@@ -112,8 +112,8 @@ therefore, a different branch. When you’ve completed work on the issue
 associated with the branch, create a **pull request** on GitHub and tag
 me (i.e., `@marcdotson`). This allows me to review what you’ve done,
 have a conversation with you about it, and eventually pull what you’ve
-done into the master branch. I’ll then delete the branch specific to
-that issue. Rinse and repeat.
+done into the main branch. I’ll then delete the branch specific to that
+issue. Rinse and repeat.
 
 ## Project Organization
 
@@ -157,7 +157,7 @@ aren’t pushed to GitHub.
 ## Miscellaneous Details
 
   - Use RStudio projects.
-  - Use branches (never work on the master branch).
+  - Use branches (never work on the main branch).
   - Use `here::here()` to specify files paths within R scripts.
   - Use tidyverse functions where possible.
 

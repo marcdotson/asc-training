@@ -51,9 +51,9 @@ When you start a new work session, you'll want to click on the blue down arrow t
 
 ### Collaborating: Branches and Pull Requests
 
-Because GitHub is very systematic in the way it manages commits, we will run into commit errors when multiple people have changed the same thing at the same time. To largely avoid this problem, among other things, we will be using **branches**. Each branch is a separate version of the repo that exists in parallel, one where you can make changes or experiment without it affecting the working or **master** branch. In fact, the master branch is protected so that you can't accidentally push changes to it.
+Because GitHub is very systematic in the way it manages commits, we will run into commit errors when multiple people have changed the same thing at the same time. To largely avoid this problem, among other things, we will be using **branches**. Each branch is a separate version of the repo that exists in parallel, one where you can make changes or experiment without it affecting the working or **main** branch. In fact, the main branch is protected so that you can't accidentally push changes to it.
 
-To do your work as a collaborator, create a new branch on GitHub with a short, descriptive name specific to the issue you're working on (e.g., `paper-revision`). When you start a work session, make sure you select the branch you want to work on from the dropdown in the Git pane in RStudio. You can commit, push, and pull as usual to the branch you're working on. This will largely avoid commit errors because each collaborator on a project should be working on a different issue and, therefore, a different branch. When you've completed work on the issue associated with the branch, create a **pull request** on GitHub and tag me (i.e., `@marcdotson`). This allows me to review what you've done, have a conversation with you about it, and eventually pull what you've done into the master branch. I'll then delete the branch specific to that issue. Rinse and repeat.
+To do your work as a collaborator, create a new branch on GitHub with a short, descriptive name specific to the issue you're working on (e.g., `paper-revision`). When you start a work session, make sure you select the branch you want to work on from the dropdown in the Git pane in RStudio. You can commit, push, and pull as usual to the branch you're working on. This will largely avoid commit errors because each collaborator on a project should be working on a different issue and, therefore, a different branch. When you've completed work on the issue associated with the branch, create a **pull request** on GitHub and tag me (i.e., `@marcdotson`). This allows me to review what you've done, have a conversation with you about it, and eventually pull what you've done into the main branch. I'll then delete the branch specific to that issue. Rinse and repeat.
 
 ## Project Organization
 
@@ -79,7 +79,7 @@ Note that you can create `Output`, `Private`, and `Readings` folders in your loc
 ## Miscellaneous Details
 
 * Use RStudio projects.
-* Use branches (never work on the master branch).
+* Use branches (never work on the main branch).
 * Use `here::here()` to specify files paths within R scripts.
 * Use tidyverse functions where possible.
 
