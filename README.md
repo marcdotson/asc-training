@@ -121,7 +121,9 @@ Each project has a similar organization. There are certain limitations
 on the size and type of files that can be pushed to GitHub. There are
 also certain things that shouldn’t be accessible by the public (e.g.,
 data we have a license to access). For these reasons, we have folders
-and files that are pushed to GitHub and those that are not.
+and files that are pushed to GitHub and those that are not. If you are
+starting a new project, please set up the repo using the [repo
+template](https://github.com/marcdotson/repo-template).
 
 ### Pushed to GitHub
 
