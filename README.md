@@ -148,13 +148,11 @@ starting a new project, please set up the repo using the
     They are also something each user can create on their own.
   - `/Private` A catch-all folder for additional files specific to a
     project that might not have anywhere else to live.
-  - `/Readings` Loose papers that you want to keep track of reading
-    locally. GitHub is not a paper management system.
 
-Note that you can create `Output`, `Private`, and `Readings` folders in
-your local clone without worrying about them being pushed. We can
-further modify the `.gitignore` file to add other folders and files that
-aren’t pushed to GitHub.
+Note that you can create `/Output` and `/Private` folders in your local
+clone without worrying about them being pushed. We can further modify
+the `.gitignore` file to add other folders and files that aren’t pushed
+to GitHub.
 
 ## Miscellaneous Details
 
