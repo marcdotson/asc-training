@@ -1,7 +1,7 @@
 Research Assistant Training
 ================
 
-## Getting Started with GitHub
+## Using GitHub
 
 GitHub is a powerful collaboration and version control tool. We will be
 using it for *project management*, *writing*, and *coding*.
@@ -52,11 +52,11 @@ This can take up to a few hours, so plan accordingly. Note that the
 following Git and GitHub training draws heavily from Jenny Bryan’s
 training on using Git and GitHub from rstudio::conf(2019).
 
-## GitHub Basics
+### GitHub Basics
 
 Now that you’re set up, let’s get started.
 
-### Just Once: Clone
+#### Just Once: Clone
 
 First **clone** one of your repos, or a repo that you’re a collaborator
 on. This is simply creating a local copy of the repo. You do this inside
@@ -64,7 +64,7 @@ RStudio by creating a new project and selecting `Version Control > Git`.
 
 ![](Figures/clone.png)
 
-### Daily Work: Commit, Push, Pull
+#### Daily Work: Commit, Push, Pull
 
 Now you can open up the RStudio Project in the local, cloned repo and
 work on the project. You have a new Git pane in RStudio that notifies
@@ -90,7 +90,7 @@ other collaborators have pushed, so you’re synced.
 
 ![](Figures/daily-work.png)
 
-### Collaborating: Branches and Pull Requests
+#### Collaborating: Branches and Pull Requests
 
 Because GitHub is very systematic in the way it manages commits, we will
 run into commit errors when multiple people have changed the same thing
@@ -114,6 +114,129 @@ me (i.e., `@marcdotson`). This allows me to review what you’ve done,
 have a conversation with you about it, and eventually pull what you’ve
 done into the main branch. I’ll then delete the branch specific to that
 issue. Rinse and repeat.
+
+### Links
+
+  - [Happy Git and GitHub for the useR](https://happygitwithr.com)
+  - [What They Forgot to Teach You About R](https://whattheyforgot.org)
+
+## Using R Markdown
+
+R Markdown is a powerful typesetting tool. Instead of writing in Word or
+a Google Doc, by using R Markdown we can include code chunks,
+parameterize the document to easily replicate reports, and output our
+work as Word documents, PDFs, PowerPoint presentations, HTML slide
+decks, GitHub pages, etc.
+
+### Markdown
+
+Markdown is a simple, generic typesetting syntax. Here is some [markdown
+syntax](https://rmarkdown.rstudio.com/authoring_basics.html). GitHub
+recognizes all of this syntax, including in Issues and pull requests.
+
+### R Markdown
+
+R Markdown allows us to include R code chunks and output as part of the
+document. In other words, this is what we need to create reproducible
+reports. You can also include Python, C++, Stan, and other code chunks
+and output.
+
+### Pandoc
+
+Pandoc is the typesetting software behind the scenes that allows us to
+take an R Markdown document and output it as nearly anything.
+
+### R Markdown Basics
+
+#### YAML
+
+The header at the top of any R Markdown document is coded in **YAML**
+(i.e., Yet Another Markdown Language). For most R Markdown document in a
+project repo, you should set to `output: github_document`. When you knit
+changes to your R Markdown document, it will create a separate markdown
+document that GitHub can parse. For example, the YAML for this document
+is:
+
+    ---
+    title: "Research Assistant Training"
+    output: github_document
+    ---
+
+#### Parameters
+
+Ever have to go through and manually change any data or model output
+referenced in a report? Not only is this costly and error prone, but it
+is the definition of non-reproducible. Parameters in R Markdown help
+solve part of this problem.
+
+Parameters are included as part of the YAML:
+
+    ---
+    title: "Research Assistant Training"
+    output: github_document
+    params:
+      year: 2019
+      data: "year_2019.rds"
+    ---
+
+Parameter values can then be referenced in the report (including code
+chunks) using the parameter name. For example, reference `params$year`
+within an R code chunk to print the year specified as a parameter or
+load the data specified as a parameter by referencing `data <-
+read_rds(params$data)` within an R code chunk.
+
+Much like the rule-of-thumb regarding functions (i.e., if you have to
+copy and paste more than twice, create a function), if you find yourself
+copying and pasting a value that you may need to update (or change to
+create a report for a different audience), add it as a parameter.
+
+#### References
+
+We can specify a bibliography in the YAML:
+
+    ---
+    title: "Research Assistant Training"
+    output: github_document
+    bibliography: references.bib
+    params:
+      year: 2019
+      data: "year_2019.rds"
+    ---
+
+We can can use the bibliography `references.bib` to include regular
+single-paper citations using `[@author:year]` or multiple-paper
+citations using `[@author:year; @author:year]`, in-line citations using
+`@author:year`, or citations without the Author using `[-@author:year]`.
+
+Additionally, each section and sub-section can be referenced using an
+automatically generated label using `\@ref(section-name)`. For example,
+we can reference the Model Specification section using
+`\@ref(model-specification)`.
+
+#### Tables and Figures
+
+Using R Markdown means we can use Markdown, R, and LaTeX (along with
+other languages) interchangeably. While we can create a table using
+LaTeX or Markdown, we can also just print a data frame using
+`knitr::kable()` and the `kableExtra` package. The name of the code
+chunk is the label that can be referenced with `\@ref(tab:label)`. For
+more table options, see the [kableExtra
+vignette](https://haozhu233.github.io/kableExtra/awesome_table_in_pdf.pdf).
+
+Similarly, while we can include a figure using LaTeX or Markdown, we can
+also use `knitr::include_graphics()`. Once again, the name of the code
+chunk is the label that can be referenced with `\@ref(fig:label)`.
+
+### Links
+
+  - [R Markdown: The Definitive
+    Guide](https://bookdown.org/yihui/rmarkdown/)
+  - [R Markdown
+    Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/)
+  - [The YAML
+    Fieldguide](http://ymlthis.r-lib.org/articles/yaml-fieldguide.html)
+  - [LaTeX Paper
+    Template](https://github.com/marcdotson/repo-template/blob/main/Writing/paper-template.Rmd)
 
 ## Project Organization
 
@@ -159,14 +282,5 @@ to GitHub.
   - Use RStudio projects.
   - Use branches (never work on the main branch).
   - Use `here::here()` to specify files paths within R scripts.
-  - Use tidyverse functions where possible.
-
-## Links
-
-  - [Tidyverse Style Guide](https://style.tidyverse.org)
-  - [R Markdown: The Definitive
-    Guide](https://bookdown.org/yihui/rmarkdown/)
-  - [R Markdown
-    Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/)
-  - [Happy Git and GitHub for the useR](https://happygitwithr.com)
-  - [What They Forgot to Teach You About R](https://whattheyforgot.org)
+  - Use tidyverse functions and the [tidyverse
+    style](https://style.tidyverse.org) where possible.
