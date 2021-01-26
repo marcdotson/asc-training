@@ -213,6 +213,13 @@ automatically generated label using `\@ref(section-name)`. For example,
 we can reference the Model Specification section using
 `\@ref(model-specification)`.
 
+#### Code Chunks
+
+There are a variety of options for each code chunk. In addition to
+specifying the language used within the code chunk, the code chunk can
+be named, can have warnings suppressed, can run without producing
+output, etc.
+
 #### Tables and Figures
 
 Using R Markdown means we can use Markdown, R, and LaTeX (along with
@@ -225,7 +232,19 @@ vignette](https://haozhu233.github.io/kableExtra/awesome_table_in_pdf.pdf).
 
 Similarly, while we can include a figure using LaTeX or Markdown, we can
 also use `knitr::include_graphics()`. Once again, the name of the code
-chunk is the label that can be referenced with `\@ref(fig:label)`.
+chunk is the label that can be referenced with `\@ref(fig:label)`. The R
+Markdown document can also create a plot and other figures, by default
+storing the figure for use in a badly named folder in the same directory
+as the R Markdown. Instead, we can place a code chunk named `opts` with
+`echo=FALSE`, often just under the YAML, to direct where created figures
+should be saved.
+
+    knitr::opts_chunk$set(
+      fig.path = "../Figures/"
+    )
+
+The name of the figures will match the name of the code chunk in which
+it was created.
 
 ### Links
 
