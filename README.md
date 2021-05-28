@@ -33,16 +33,17 @@ with than you might expect from time spent with **R Markdown**. Here are
 some [markdown
 basics](https://rmarkdown.rstudio.com/authoring_basics.html). We will be
 writing using *parameterized* R Markdown so we can easily reference
-model output instead of including it manually.
+model output instead of including it manually. See below for more on
+using R Markdown.
 
 ### Coding
 
 GitHub was created for software development. While we may not actually
 be developing software, we will be importing, wrangling, visualizing,
-and modeling data, and it’s going to be essential for everyone to be on
-the same page. Even if you were just working solo, you will be
-collaborating with your past self and you should do yourself a favor and
-impose good version controls on your code.
+and modeling data using code, and it’s going to be essential for
+everyone to be on the same page. Even if you were just working solo, you
+will be collaborating with your past self and you should do yourself a
+favor and impose good version controls on your code.
 
 ### Set-Up
 
@@ -115,10 +116,28 @@ have a conversation with you about it, and eventually pull what you’ve
 done into the main branch. I’ll then delete the branch specific to that
 issue. Rinse and repeat.
 
+### Cleaning Up Branches
+
+While your daily work won’t require you to write any Git code,
+*eventually* you’ll need to clean up the branches you have on your
+clone. You’ll need to do this from the command line Terminal. I
+recommend you use the one available in RStudio once you’ve opened the
+project you want to clean up.
+
+-   In the Terminal, type `git branch --merged` to see which branches
+    have been merged into **main** and can be deleted from your local
+    clone.
+-   Then type `git branch -d <branch>` where `<branch>` is replaced with
+    the name of the merged branch that you’d like to remove from your
+    clone.
+
+Voila! A cleaned up branch drop down in your Git pane makes things
+easier to navigate.
+
 ### Links
 
-  - [Happy Git and GitHub for the useR](https://happygitwithr.com)
-  - [What They Forgot to Teach You About R](https://whattheyforgot.org)
+-   [Happy Git and GitHub for the useR](https://happygitwithr.com)
+-   [What They Forgot to Teach You About R](https://whattheyforgot.org)
 
 ## Using R Markdown
 
@@ -182,8 +201,8 @@ Parameters are included as part of the YAML:
 Parameter values can then be referenced in the report (including code
 chunks) using the parameter name. For example, reference `params$year`
 within an R code chunk to print the year specified as a parameter or
-load the data specified as a parameter by referencing `data <-
-read_rds(params$data)` within an R code chunk.
+load the data specified as a parameter by referencing
+`data <- read_rds(params$data)` within an R code chunk.
 
 Much like the rule-of-thumb regarding functions (i.e., if you have to
 copy and paste more than twice, create a function), if you find yourself
@@ -248,13 +267,13 @@ it was created.
 
 ### Links
 
-  - [R Markdown: The Definitive
+-   [R Markdown: The Definitive
     Guide](https://bookdown.org/yihui/rmarkdown/)
-  - [R Markdown
+-   [R Markdown
     Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/)
-  - [The YAML
+-   [The YAML
     Fieldguide](http://ymlthis.r-lib.org/articles/yaml-fieldguide.html)
-  - [LaTeX Paper
+-   [LaTeX Paper
     Template](https://github.com/marcdotson/repo-template/blob/main/Writing/paper-template.Rmd)
 
 ## Project Organization
@@ -269,26 +288,26 @@ starting a new project, please set up the repo using the
 
 ### Pushed to GitHub
 
-  - `/Code` Each script should do something specific (like tidyverse
+-   `/Code` Each script should do something specific (like tidyverse
     functions), have a descriptive name, and include number prefixes if
     they are meant to be run in a certain order (e.g.,
     `01_import-data.R`, `02_clean-data.R`).
-  - `/Data` While all data live here, only data that are small enough
+-   `/Data` While all data live here, only data that are small enough
     and can be shared publicly will be pushed.
-  - `/Figures` Figures live here, including images (saved as PNG files)
+-   `/Figures` Figures live here, including images (saved as PNG files)
     and data referenced or used for tables, for use in the `README`,
     writing, and presentation.
-  - `/Presentation` Slides for presentations (without any PDF knits).
-  - `/Writing` The paper (using the paper template but without any PDF
+-   `/Presentation` Slides for presentations (without any PDF knits).
+-   `/Writing` The paper (using the paper template but without any PDF
     knits) and case studies on specific aspects related to the project
     (with the output set to `github_document`).
-  - `README` The abstract and project organization details.
+-   `README` The abstract and project organization details.
 
 ### Not Pushed to GitHub
 
-  - `/Output` Output from model runs. These files tend to be too large.
+-   `/Output` Output from model runs. These files tend to be too large.
     They are also something each user can create on their own.
-  - `/Private` A catch-all folder for additional files specific to a
+-   `/Private` A catch-all folder for additional files specific to a
     project that might not have anywhere else to live.
 
 Note that you can create `/Output` and `/Private` folders in your local
@@ -298,8 +317,8 @@ to GitHub.
 
 ## Miscellaneous Details
 
-  - Use RStudio projects.
-  - Use branches (never work on the main branch).
-  - Use `here::here()` to specify files paths within R scripts.
-  - Use tidyverse functions and the [tidyverse
+-   Use RStudio projects.
+-   Use branches (never work on the main branch).
+-   Use `here::here()` to specify files paths within R scripts.
+-   Use tidyverse functions and the [tidyverse
     style](https://style.tidyverse.org) where possible.
