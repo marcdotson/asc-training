@@ -61,6 +61,7 @@ While your daily work won't require you to write any Git code, *eventually* you'
 
 - In the Terminal, type `git branch --merged` to see which branches have been merged into **main** and can be deleted from your local clone.
 - Then type `git branch -d <branch>` where `<branch>` is replaced with the name of the merged branch that you'd like to remove from your clone.
+- Finally, use `git fetch -p` to prune remote-tracking branches that are no longer on remote (i.e., on GitHub).
 
 Voila! A cleaned up branch drop down in your Git pane makes things easier to navigate.
 

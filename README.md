@@ -130,7 +130,7 @@ project you want to clean up.
 -   Then type `git branch -d <branch>` where `<branch>` is replaced with
     the name of the merged branch that you’d like to remove from your
     clone.
--   Finally, use `git fetch -p` to prune remote-tracking branches that 
+-   Finally, use `git fetch -p` to prune remote-tracking branches that
     are no longer on remote (i.e., on GitHub).
 
 Voila! A cleaned up branch drop down in your Git pane makes things
