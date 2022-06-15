@@ -267,6 +267,20 @@ should be saved.
 The name of the figures will match the name of the code chunk in which
 it was created.
 
+#### Equations
+
+Equations are now supported when producing a GitHub document. Use `$`
+around any in-line LaTeX notation or `$$` around equations specified as
+a separate line. For example, we can reference
+![y^2](https://latex.codecogs.com/png.image?%5Cdpi%7B110%7D&space;%5Cbg_white&space;y%5E2 "y^2")
+as well as:
+
+![
+y^2.
+](https://latex.codecogs.com/png.image?%5Cdpi%7B110%7D&space;%5Cbg_white&space;%0Ay%5E2.%0A "
+y^2.
+")
+
 ### Links
 
 -   [R Markdown: The Definitive

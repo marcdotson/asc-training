@@ -156,6 +156,14 @@ knitr::opts_chunk$set(
 
 The name of the figures will match the name of the code chunk in which it was created.
 
+#### Equations
+
+Equations are now supported when producing a GitHub document. Use `$` around any in-line LaTeX notation or `$$` around equations specified as a separate line. For example, we can reference $y^2$ as well as:
+
+$$
+y^2.
+$$
+
 ### Links
 
 * [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
