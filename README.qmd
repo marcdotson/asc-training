@@ -1,6 +1,6 @@
 ---
 title: "Research Assistant Training"
-output: github_document
+format: gfm
 ---
 
 ## Using GitHub
@@ -19,7 +19,7 @@ Think of using GitHub to collaborate on writing as using something like Google D
 2. If you're coding, think of the associated writing as long-form comments.
 3. The final product of any project is going to be a paper, so start writing it now.
 
-GitHub supports **markdown** syntax, which you're probably more familiar with than you might expect from time spent with **R Markdown**. Here are some [markdown basics](https://rmarkdown.rstudio.com/authoring_basics.html). We will be writing using *parameterized* R Markdown so we can easily reference model output instead of including it manually. See below for more on using R Markdown.
+GitHub supports **markdown** syntax, which you're probably more familiar with than you might expect from time spent with **Quarto**. Here are some [markdown basics](https://quarto.org/docs/authoring/markdown-basics.html). We will be writing using *parameterized* Quarto documents so we can easily reference model output instead of including it manually. See below for more on using Quarto.
 
 ### Coding
 
@@ -70,63 +70,63 @@ Voila! A cleaned up branch drop down in your Git pane makes things easier to nav
 * [Happy Git and GitHub for the useR](https://happygitwithr.com)
 * [What They Forgot to Teach You About R](https://whattheyforgot.org)
 
-## Using R Markdown
+## Using Quarto
 
-R Markdown is a powerful typesetting tool. Instead of writing in Word or a Google Doc, by using R Markdown we can include code chunks, parameterize the document to easily replicate reports, and output our work as Word documents, PDFs, PowerPoint presentations, HTML slide decks, GitHub pages, etc.
+Quarto is a powerful typesetting tool and the multilingual replacement for R Markdown. Instead of writing in Word or a Google Doc, by using Quarto we can include code blocks, parameterize the document to easily replicate reports, and output our work as Word documents, PDFs, PowerPoint presentations, HTML slide decks, GitHub pages, etc.
 
 ### Markdown
 
-Markdown is a simple, generic typesetting syntax. Here is some [markdown syntax](https://rmarkdown.rstudio.com/authoring_basics.html). GitHub recognizes all of this syntax, including in Issues and pull requests.
+Markdown is a simple, generic typesetting syntax. Here is some [markdown syntax](https://quarto.org/docs/authoring/markdown-basics.html). GitHub recognizes this syntax, including in Issues and pull requests.
 
-### R Markdown
+### Code
 
-R Markdown allows us to include R code chunks and output as part of the document. In other words, this is what we need to create reproducible reports. You can also include Python, C++, Stan, and other code chunks and output.
+Quarto allows us to include code blocks and output as part of the document. In other words, this is what we need to create reproducible reports. You can also include R, Python, C++, Stan, and other code blocks and output.
 
 ### Pandoc
 
-Pandoc is the typesetting software behind the scenes that allows us to take an R Markdown document and output it as nearly anything.
+Pandoc is the typesetting software behind the scenes that allows us to take a Quarto document and output it as nearly anything.
 
-### R Markdown Basics
+### Quarto Basics
 
 #### YAML
 
-The header at the top of any R Markdown document is coded in **YAML** (i.e., Yet Another Markdown Language). For most R Markdown document in a project repo, you should set to `output: github_document`. When you knit changes to your R Markdown document, it will create a separate markdown document that GitHub can parse. For example, the YAML for this document is:
+The header at the top of any Quarto document is coded in **YAML** (i.e., Yet Another Markup Language), which follows a simple `key: value` syntax. For most Quarto documents in a project repo, you should set `format: gfm`. When you knit changes to your Quarto document, it will create a separate markdown document using "GitHub Flavored Markdown" that GitHub can parse. For example, the header for this document is:
 
 ```
 ---
 title: "Research Assistant Training"
-output: github_document
+format: gfm
 ---
 ```
 
 #### Parameters
 
-Ever have to go through and manually change any data or model output referenced in a report? Not only is this costly and error prone, but it is the definition of non-reproducible. Parameters in R Markdown help solve part of this problem.
+Ever have to go through and manually change any data or model output referenced in a report? Not only is this costly and error prone, but it is the definition of non-reproducible. Parameters in Quarto help solve part of this problem.
 
-Parameters are included as part of the YAML:
+Parameters are included as part of the header:
 
 ```
 ---
 title: "Research Assistant Training"
-output: github_document
+format: gfm
 params:
   year: 2019
   data: "year_2019.rds"
 ---
 ```
 
-Parameter values can then be referenced in the report (including code chunks) using the parameter name. For example, reference `params$year` within an R code chunk to print the year specified as a parameter or load the data specified as a parameter by referencing `data <- read_rds(params$data)` within an R code chunk.
+Parameter values can then be referenced in the report (including code blocks) using the parameter name as a list. For example, reference `params$year` within an R code block to print the year specified as a parameter or load the data specified as a parameter by referencing `data <- read_rds(params$data)` within an R code block.
 
 Much like the rule-of-thumb regarding functions (i.e., if you have to copy and paste more than twice, create a function), if you find yourself copying and pasting a value that you may need to update (or change to create a report for a different audience), add it as a parameter.
 
 #### References
 
-We can specify a bibliography in the YAML:
+We can specify a bibliography in the header:
 
 ```
 ---
 title: "Research Assistant Training"
-output: github_document
+format: gfm
 bibliography: references.bib
 params:
   year: 2019
@@ -134,27 +134,39 @@ params:
 ---
 ```
 
-We can can use the bibliography `references.bib` to include regular single-paper citations using `[@author:year]` or multiple-paper citations using `[@author:year; @author:year]`, in-line citations using `@author:year`, or citations without the Author using `[-@author:year]`.
+We can can use the bibliography `references.bib` to include regular single-paper citations using `[@citation]` or multiple-paper citations using `[@citation; @citation]`, in-line citations using `@citation`, or citations without the Author using `[-@citation]`.
 
-Additionally, each section and sub-section can be referenced using an automatically generated label using `\@ref(section-name)`. For example, we can reference the Model Specification section using `\@ref(model-specification)`.
+Additionally, each section and sub-section can be referenced by adding a `#sec` identifier to any heading and referencing `@sec`. For example, `## Introduction {#sec-intro}` would be referenced as `@sec-intro`.
 
-#### Code Chunks
+#### Code Blocks
 
-There are a variety of options for each code chunk. In addition to specifying the language used within the code chunk, the code chunk can be named, can have warnings suppressed, can run without producing output, etc.
+There are a variety of options for each code block. In addition to specifying the language used within the code block, the code block can be given an identifier, can have warnings suppressed, can run without producing output, etc. These options are specified using YAML syntax following the `#|` operator within the body of the code block. Any code block option that should apply to the document in its entirety can simply be moved into the header.
 
 #### Tables and Figures
 
-Using R Markdown means we can use Markdown, R, and LaTeX (along with other languages) interchangeably. While we can create a table using LaTeX or Markdown, we can also just print a data frame using `knitr::kable()` and the `kableExtra` package. The name of the code chunk is the label that can be referenced with `\@ref(tab:label)`. For more table options, see the [kableExtra vignette](https://haozhu233.github.io/kableExtra/awesome_table_in_pdf.pdf).
+Using Quarto means we can use Markdown, R, and LaTeX (along with other languages) interchangeably. While we can create a table using LaTeX or Markdown, we can also just print a data frame using `knitr::kable()` and the `kableExtra` package. The name of the code block is the given label that can be referenced, for example `#| label: tbl-planets` referenced with `@tbl-planets` (note that the `tbl-` prefix is required). For more table options, see the [kableExtra vignette](https://haozhu233.github.io/kableExtra/awesome_table_in_pdf.pdf).
 
-Similarly, while we can include a figure using LaTeX or Markdown, we can also use `knitr::include_graphics()`. Once again, the name of the code chunk is the label that can be referenced with `\@ref(fig:label)`. The R Markdown document can also create a plot and other figures, by default storing the figure for use in a badly named folder in the same directory as the R Markdown. Instead, we can place a code chunk named `opts` with `echo=FALSE`, often just under the YAML, to direct where created figures should be saved.
+Similarly, while we can include a figure using LaTeX or Markdown, we can also use `knitr::include_graphics()`. Once again, the name of the code block is the label that can be referenced, for example `#| label: fig-elephant` or `{#fig-elephant}` referenced with `@fig-elephant` (note that the `fig-` prefix is required). When Quarto creates a plot and other figures, by default they are stored in a badly named folder in the same directory as the Quarto document. Instead, we can modify the header to direct where created figures should be saved.
 
 ```
+---
+title: "Research Assistant Training"
+format: gfm
+bibliography: references.bib
+params:
+  year: 2019
+  data: "year_2019.rds"
+knitr:
+  opts_chunk:
+    fig.path: "../Figures/"
+---
+
 knitr::opts_chunk$set(
   fig.path = "../Figures/"
 )
 ```
 
-The name of the figures will match the name of the code chunk in which it was created.
+The name of the figures will match the name of the code block in which it was created.
 
 #### Equations
 
@@ -166,8 +178,8 @@ $$
 
 ### Links
 
-* [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
-* [R Markdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/)
+* [Quarto](https://quarto.org)
+* [Quarto questions](https://occasionaldivergences.com/posts/quarto-questions/)
 * [The YAML Fieldguide](http://ymlthis.r-lib.org/articles/yaml-fieldguide.html)
 * [LaTeX Paper Template](https://github.com/marcdotson/repo-template/blob/main/Writing/paper-template.Rmd)
 
@@ -180,7 +192,7 @@ Each project has a similar organization. There are certain limitations on the si
 * `/Code` Each script should do something specific (like tidyverse functions), have a descriptive name, and include number prefixes if they are meant to be run in a certain order (e.g., `01_import-data.R`, `02_clean-data.R`).
 * `/Data` While all data live here, only data that are small enough and can be shared publicly will be pushed.
 * `/Figures` Figures live here, including images (saved as PNG files) and data referenced or used for tables, for use in the `README`, writing, and presentation.
-* `/Presentation` Slides for presentations (without any PDF knits).
+* `/Presentations` Slides for presentations (without any PDF knits).
 * `/Writing` The paper (using the paper template but without any PDF knits) and case studies on specific aspects related to the project (with the output set to `github_document`).
 * `README` The abstract and project organization details.
 
