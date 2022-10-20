@@ -9,8 +9,8 @@ using it for *project management*, *writing*, and *coding*.
 ### Project Management
 
 By project management I primarily mean keeping track of assigned tasks
-using the **Issues** tab on GitHub. We can have an ongoing conversation
-here about each specific issue and close it out when its completed or
+using GitHub’s **Issues**. We can have an ongoing conversation there
+about each specific issue and close it out when its completed or
 resolved. Be sure to tag collaborators you want to see the conversation
 (e.g., `@marcdotson`). Think of this as an email thread or Slack channel
 except all of the conversations are in one place, easily searchable, and
@@ -28,11 +28,9 @@ project as we do it. This is true for a number of reasons.
 3.  The final product of any project is going to be a paper, so start
     writing it now.
 
-GitHub supports **markdown** syntax, which you’re probably more familiar
-with than you might expect from time spent with **Quarto**. Here are
-some [markdown
-basics](https://quarto.org/docs/authoring/markdown-basics.html). We will
-be writing using *parameterized* Quarto documents so we can easily
+GitHub supports **Markdown** syntax, which you’re probably more familiar
+with than you might expect from time spent with **Quarto**. We will be
+writing using *parameterized* Quarto documents so we can easily
 reference model output instead of including it manually. See below for
 more on using Quarto.
 
@@ -98,9 +96,8 @@ run into commit errors when multiple people have changed the same thing
 at the same time. To largely avoid this problem, among other things, we
 will be using **branches**. Each branch is a separate version of the
 repo that exists in parallel, one where you can make changes or
-experiment without it affecting the working or **main** branch. In fact,
-the main branch is protected so that you can’t accidentally push changes
-to it.
+experiment without it affecting the working or **main** branch. You
+should *never* push changes to the main branch directly.
 
 To do your work as a collaborator, create a new branch on GitHub with a
 short, descriptive name specific to the issue you’re working on (e.g.,
@@ -108,8 +105,8 @@ short, descriptive name specific to the issue you’re working on (e.g.,
 the branch you want to work on from the dropdown in the Git pane in
 RStudio. You can commit, push, and pull as usual to the branch you’re
 working on. This will largely avoid commit errors because each
-collaborator on a project should be working on a different issue and,
-therefore, a different branch. When you’ve completed work on the issue
+collaborator on a project should be working on a different issue and
+likely a different branch. When you’ve completed work on the issue
 associated with the branch, create a **pull request** on GitHub and tag
 me (i.e., `@marcdotson`). This allows me to review what you’ve done,
 have a conversation with you about it, and eventually pull what you’ve
@@ -119,7 +116,7 @@ issue. Rinse and repeat.
 ### Cleaning Up Branches
 
 While your daily work won’t require you to write any Git code,
-*eventually* you’ll need to clean up the branches you have on your
+*eventually* you’ll need to clean up the branches you have on your local
 clone. You’ll need to do this from the command line Terminal. I
 recommend you use the one available in RStudio once you’ve opened the
 project you want to clean up.
@@ -150,8 +147,9 @@ PowerPoint presentations, HTML slide decks, GitHub pages, etc.
 
 ### Markdown
 
-Markdown is a simple, generic typesetting syntax. Here is some [markdown
-syntax](https://quarto.org/docs/authoring/markdown-basics.html). GitHub
+Markdown is a simple, generic typesetting syntax. Here are some
+[Markdown
+Basics](https://quarto.org/docs/authoring/markdown-basics.html). GitHub
 recognizes this syntax, including in Issues and pull requests.
 
 ### Code
@@ -195,13 +193,13 @@ Parameters are included as part of the header:
     title: "Research Assistant Training"
     format: gfm
     params:
-      year: 2019
-      data: "year_2019.rds"
+      name: "Analytics"
+      data: "analytics_data.rds"
     ---
 
 Parameter values can then be referenced in the report (including code
 blocks) using the parameter name as a list. For example, reference
-`params$year` within an R code block to print the year specified as a
+`params$name` within an R code block to print the year specified as a
 parameter or load the data specified as a parameter by referencing
 `data <- read_rds(params$data)` within an R code block.
 
@@ -219,8 +217,8 @@ We can specify a bibliography in the header:
     format: gfm
     bibliography: references.bib
     params:
-      year: 2019
-      data: "year_2019.rds"
+      name: "Analytics"
+      data: "analytics_data.rds"
     ---
 
 We can can use the bibliography `references.bib` to include regular
@@ -238,9 +236,9 @@ There are a variety of options for each code block. In addition to
 specifying the language used within the code block, the code block can
 be given an identifier, can have warnings suppressed, can run without
 producing output, etc. These options are specified using YAML syntax
-following the `#|` operator within the body of the code block. Any code
-block option that should apply to the document in its entirety can
-simply be moved into the header.
+following the hashpipe operator `#|` within the body of the code block.
+Any code block option that should apply to the document in its entirety
+can simply be moved into the header.
 
 #### Tables and Figures
 
@@ -257,18 +255,20 @@ Similarly, while we can include a figure using LaTeX or Markdown, we can
 also use `knitr::include_graphics()`. Once again, the name of the code
 block is the label that can be referenced, for example
 `#| label: fig-elephant` or `{#fig-elephant}` referenced with
-`@fig-elephant` (note that the `fig-` prefix is required). When Quarto
-creates a plot and other figures, by default they are stored in a badly
-named folder in the same directory as the Quarto document. Instead, we
-can modify the header to direct where created figures should be saved.
+`@fig-elephant` (note that the `fig-` prefix is required).
+
+When Quarto creates a plot and other figures, by default they are stored
+in a badly named folder in the same directory as the Quarto document.
+Instead, we can modify the header to direct where created figures should
+be saved.
 
     ---
     title: "Research Assistant Training"
     format: gfm
     bibliography: references.bib
     params:
-      year: 2019
-      data: "year_2019.rds"
+      name: "Analytics"
+      data: "analytics_data.rds"
     knitr:
       opts_chunk:
         fig.path: "../Figures/"
@@ -278,7 +278,7 @@ can modify the header to direct where created figures should be saved.
       fig.path = "../Figures/"
     )
 
-The name of the figures will match the name of the code block in which
+The name of the figures will match the label of the code block in which
 it was created.
 
 #### Equations
