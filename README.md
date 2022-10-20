@@ -274,10 +274,6 @@ be saved.
         fig.path: "../Figures/"
     ---
 
-    knitr::opts_chunk$set(
-      fig.path = "../Figures/"
-    )
-
 The name of the figures will match the label of the code block in which
 it was created.
 
