@@ -146,7 +146,7 @@ There are a variety of options for each code block. In addition to specifying th
 
 Using Quarto means we can use Markdown, R, and LaTeX (along with other languages) interchangeably. While we can create a table using LaTeX or Markdown, we can also just print a data frame using `knitr::kable()` and the `kableExtra` package. The name of the code block is the given label that can be referenced, for example `#| label: tbl-planets` referenced with `@tbl-planets` (note that the `tbl-` prefix is required). For more table options, see the [kableExtra vignette](https://haozhu233.github.io/kableExtra/awesome_table_in_pdf.pdf).
 
-Similarly, while we can include a figure using LaTeX or Markdown, we can also use `knitr::include_graphics()`. Once again, the name of the code block is the label that can be referenced, for example `#| label: fig-elephant` or `{#fig-elephant}` referenced with `@fig-elephant` (note that the `fig-` prefix is required). 
+Similarly, we can include a figure using LaTeX, Markdown, or `knitr`. If `knitr::include_graphics()` is used, the name of the code block is the label that can be referenced, for example `#| label: fig-elephant`. If Markdown `![]()` syntax is used, the same label would be `{#fig-elephant}`. In either case, the figure would be referenced with `@fig-elephant` (note that the `fig-` prefix is required).
 
 When Quarto creates a plot and other figures, by default they are stored in a badly named folder in the same directory as the Quarto document. Instead, we can modify the header to direct where created figures should be saved.
 

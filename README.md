@@ -251,10 +251,11 @@ with `@tbl-planets` (note that the `tbl-` prefix is required). For more
 table options, see the [kableExtra
 vignette](https://haozhu233.github.io/kableExtra/awesome_table_in_pdf.pdf).
 
-Similarly, while we can include a figure using LaTeX or Markdown, we can
-also use `knitr::include_graphics()`. Once again, the name of the code
-block is the label that can be referenced, for example
-`#| label: fig-elephant` or `{#fig-elephant}` referenced with
+Similarly, we can include a figure using LaTeX, Markdown, or `knitr`. If
+`knitr::include_graphics()` is used, the name of the code block is the
+label that can be referenced, for example `#| label: fig-elephant`. If
+Markdown `![]()` syntax is used, the same label would be
+`{#fig-elephant}`. In either case, the figure would be referenced with
 `@fig-elephant` (note that the `fig-` prefix is required).
 
 When Quarto creates a plot and other figures, by default they are stored
