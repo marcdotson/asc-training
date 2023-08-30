@@ -353,6 +353,9 @@ by creating a project library using the `{renv}` package.
 - To install the specific packages of an already-existing project
   library, use `renv::restore()`.
 
+Read [https://rstudio.github.io/renv/index.html](here) for more on using
+`{renv}`, including creating and maintaining Python environments.
+
 ## Miscellaneous Details
 
 - Use branches (never work on the main branch).
