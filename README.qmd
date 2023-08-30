@@ -67,8 +67,8 @@ Voila! A cleaned up branch drop down in your Git pane makes things easier to nav
 
 ### Links
 
-* [Happy Git and GitHub for the useR](https://happygitwithr.com)
-* [What They Forgot to Teach You About R](https://whattheyforgot.org)
+- [Happy Git and GitHub for the useR](https://happygitwithr.com)
+- [What They Forgot to Teach You About R](https://whattheyforgot.org)
 
 ## Using Quarto
 
@@ -176,10 +176,10 @@ $$
 
 ### Links
 
-* [Quarto](https://quarto.org)
-* [Quarto questions](https://occasionaldivergences.com/posts/quarto-questions/)
-* [The YAML Fieldguide](http://ymlthis.r-lib.org/articles/yaml-fieldguide.html)
-* [LaTeX Paper Template](https://github.com/marcdotson/repo-template/blob/main/Writing/paper-template.Rmd)
+- [Quarto](https://quarto.org)
+- [Quarto questions](https://occasionaldivergences.com/posts/quarto-questions/)
+- [The YAML Fieldguide](http://ymlthis.r-lib.org/articles/yaml-fieldguide.html)
+- [LaTeX Paper Template](https://github.com/marcdotson/repo-template/blob/main/Writing/paper-template.Rmd)
 
 ## Project Organization
 
@@ -187,20 +187,20 @@ Each project has a similar organization. There are certain limitations on the si
 
 ### Pushed to GitHub
 
-* `/code` Each script should do something specific (like tidyverse functions), have a descriptive name, and include number prefixes if they are meant to be run in a certain order (e.g., `01_import-data.R`, `02_clean-data.R`).
-* `/data` While all data live here, only data that are small enough and can be shared publicly will be pushed.
-* `/figures` Figures live here, including images (saved as PNG files) and data referenced or used for tables, for use in the `README`, writing, and presentation.
-* `/presentations` Slides for presentations (without any PDF knits).
-* `/renv` Information on the reproducible environment (see below).
-* `/writing` The paper (using the paper template but without any PDF knits) and case studies on specific aspects related to the project (with the output set to `github_document`).
-* `.Rprofile` Information on the reproducible environment (see below).
-* `renv.lock` Information on the reproducible environment (see below).
-* `README` The abstract and project organization details.
+- `/code` Each script should do something specific (like tidyverse functions), have a descriptive name, and include number prefixes if they are meant to be run in a certain order (e.g., `01_import-data.R`, `02_clean-data.R`).
+- `/data` While all data live here, only data that are small enough and can be shared publicly will be pushed.
+- `/figures` Figures live here, including images (saved as PNG files) and data referenced or used for tables, for use in the `README`, writing, and presentation.
+- `/presentations` Slides for presentations (without any PDF knits).
+- `/renv` Information on the reproducible environment (see below).
+- `/writing` The paper (using the paper template but without any PDF knits) and case studies on specific aspects related to the project (with the output set to `github_document`).
+- `.Rprofile` Information on the reproducible environment (see below).
+- `README` The abstract and project organization details.
+- `renv.lock` Information on the reproducible environment (see below).
 
 ### Not Pushed to GitHub
 
-* `/output` Output from model runs. These files tend to be too large. They are also something each user can create on their own.
-* `/private` A catch-all folder for additional files specific to a project that might not have anywhere else to live.
+- `/output` Output from model runs. These files tend to be too large. They are also something each user can create on their own.
+- `/private` A catch-all folder for additional files specific to a project that might not have anywhere else to live.
 
 Note that you can create `/output` and `/private` folders in your local clone without worrying about them being pushed. We can further modify the `.gitignore` file to add other folders and files that aren't pushed to GitHub.
 
@@ -209,14 +209,14 @@ Note that you can create `/output` and `/private` folders in your local clone wi
 Every package you install lives in your system library, accessible to all projects. However, packages change. Add a reproducible environment by creating a project library using the `{renv}` package.
 
 - Initialize the project library once using `renv::init()`. This will create the `renv` folder (with its own `.gitignore`), a lockfile `renv.lock`, and an `.Rprofile` file.
-- Once you've intalled packages, add them to the project library using `renv::snapshot()`.
+- Once you've installed packages, add them to the project library using `renv::snapshot()`.
 - To install the specific packages of an already-existing project library, use `renv::restore()`.
 
-Read [https://rstudio.github.io/renv/index.html](here) for more on using `{renv}`, including creating and maintaining Python environments.
+Read [here](https://rstudio.github.io/renv/index.html) for more on using `{renv}`, including creating and maintaining Python environments.
 
 ## Miscellaneous Details
 
-* Use branches (never work on the main branch).
-* Use `here::here()` to specify files paths within R scripts.
-* Use tidyverse functions and the [tidyverse style](https://style.tidyverse.org) where possible.
+- Use branches (never work on the main branch).
+- Use `here::here()` to specify files paths within R scripts.
+- Use tidyverse functions and the [tidyverse style](https://style.tidyverse.org) where possible.
 

@@ -324,8 +324,8 @@ starting a new project, please set up the repo using the
   knits) and case studies on specific aspects related to the project
   (with the output set to `github_document`).
 - `.Rprofile` Information on the reproducible environment (see below).
-- `renv.lock` Information on the reproducible environment (see below).
 - `README` The abstract and project organization details.
+- `renv.lock` Information on the reproducible environment (see below).
 
 ### Not Pushed to GitHub
 
@@ -348,12 +348,12 @@ by creating a project library using the `{renv}` package.
 - Initialize the project library once using `renv::init()`. This will
   create the `renv` folder (with its own `.gitignore`), a lockfile
   `renv.lock`, and an `.Rprofile` file.
-- Once you’ve intalled packages, add them to the project library using
+- Once you’ve installed packages, add them to the project library using
   `renv::snapshot()`.
 - To install the specific packages of an already-existing project
   library, use `renv::restore()`.
 
-Read [https://rstudio.github.io/renv/index.html](here) for more on using
+Read [here](https://rstudio.github.io/renv/index.html) for more on using
 `{renv}`, including creating and maintaining Python environments.
 
 ## Miscellaneous Details
