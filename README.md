@@ -1,5 +1,4 @@
-Research Assistant Training
-================
+# Research Assistant Training
 
 ## Using GitHub
 
@@ -61,7 +60,7 @@ First **clone** one of your repos, or a repo that you’re a collaborator
 on. This is simply creating a local copy of the repo. You do this inside
 RStudio by creating a new project and selecting `Version Control > Git`.
 
-![](Figures/clone.png)
+![](figures/clone.png)
 
 #### Daily Work: Commit, Push, Pull
 
@@ -87,7 +86,7 @@ When you start a new work session, you’ll want to click on the blue down
 arrow to **pull** the latest changes from the repo, possibly the work
 other collaborators have pushed, so you’re synced.
 
-![](Figures/daily-work.png)
+![](figures/daily-work.png)
 
 #### Collaborating: Branches and Pull Requests
 
@@ -245,10 +244,10 @@ can simply be moved into the header.
 Using Quarto means we can use Markdown, R, and LaTeX (along with other
 languages) interchangeably. While we can create a table using LaTeX or
 Markdown, we can also just print a data frame using `knitr::kable()` and
-the `kableExtra` package. The name of the code block is the given label
-that can be referenced, for example `#| label: tbl-planets` referenced
-with `@tbl-planets` (note that the `tbl-` prefix is required). For more
-table options, see the [kableExtra
+the `{kableExtra}` package. The name of the code block is the given
+label that can be referenced, for example `#| label: tbl-planets`
+referenced with `@tbl-planets` (note that the `tbl-` prefix is
+required). For more table options, see the [kableExtra
 vignette](https://haozhu233.github.io/kableExtra/awesome_table_in_pdf.pdf).
 
 Similarly, we can include a figure using LaTeX, Markdown, or `knitr`. If
@@ -272,7 +271,7 @@ be saved.
       data: "analytics_data.rds"
     knitr:
       opts_chunk:
-        fig.path: "../Figures/"
+        fig.path: "../figures/"
     ---
 
 The name of the figures will match the label of the code block in which
@@ -310,36 +309,52 @@ starting a new project, please set up the repo using the
 
 ### Pushed to GitHub
 
-- `/Code` Each script should do something specific (like tidyverse
+- `/code` Each script should do something specific (like tidyverse
   functions), have a descriptive name, and include number prefixes if
   they are meant to be run in a certain order (e.g., `01_import-data.R`,
   `02_clean-data.R`).
-- `/Data` While all data live here, only data that are small enough and
+- `/data` While all data live here, only data that are small enough and
   can be shared publicly will be pushed.
-- `/Figures` Figures live here, including images (saved as PNG files)
+- `/figures` Figures live here, including images (saved as PNG files)
   and data referenced or used for tables, for use in the `README`,
   writing, and presentation.
-- `/Presentations` Slides for presentations (without any PDF knits).
-- `/Writing` The paper (using the paper template but without any PDF
+- `/presentations` Slides for presentations (without any PDF knits).
+- `/renv` Information on the reproducible environment (see below).
+- `/writing` The paper (using the paper template but without any PDF
   knits) and case studies on specific aspects related to the project
   (with the output set to `github_document`).
+- `.Rprofile` Information on the reproducible environment (see below).
+- `renv.lock` Information on the reproducible environment (see below).
 - `README` The abstract and project organization details.
 
 ### Not Pushed to GitHub
 
-- `/Output` Output from model runs. These files tend to be too large.
+- `/output` Output from model runs. These files tend to be too large.
   They are also something each user can create on their own.
-- `/Private` A catch-all folder for additional files specific to a
+- `/private` A catch-all folder for additional files specific to a
   project that might not have anywhere else to live.
 
-Note that you can create `/Output` and `/Private` folders in your local
+Note that you can create `/output` and `/private` folders in your local
 clone without worrying about them being pushed. We can further modify
 the `.gitignore` file to add other folders and files that aren’t pushed
 to GitHub.
 
+### Reproducible Environment
+
+Every package you install lives in your system library, accessible to
+all projects. However, packages change. Add a reproducible environment
+by creating a project library using the `{renv}` package.
+
+- Initialize the project library once using `renv::init()`. This will
+  create the `renv` folder (with its own `.gitignore`), a lockfile
+  `renv.lock`, and an `.Rprofile` file.
+- Once you’ve intalled packages, add them to the project library using
+  `renv::snapshot()`.
+- To install the specific packages of an already-existing project
+  library, use `renv::restore()`.
+
 ## Miscellaneous Details
 
-- Use RStudio projects.
 - Use branches (never work on the main branch).
 - Use `here::here()` to specify files paths within R scripts.
 - Use tidyverse functions and the [tidyverse
