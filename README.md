@@ -84,7 +84,10 @@ version.
 
 When you start a new work session, you’ll want to click on the blue down
 arrow to **pull** the latest changes from the repo, possibly the work
-other collaborators have pushed, so you’re synced.
+other collaborators have pushed, so you’re synced. Note that hidden
+files (i.e., `.gitignore` and `.Rprofile`) may try to change on their
+own. When you open the commit dialog, you can click on these modified
+files and hit **revert** to undo these changes.
 
 ![](figures/daily-work.png)
 
@@ -339,7 +342,7 @@ clone without worrying about them being pushed. We can further modify
 the `.gitignore` file to add other folders and files that aren’t pushed
 to GitHub.
 
-### Reproducible Environment
+## Reproducible Environment
 
 Every package you install lives in your system library, accessible to
 all projects. However, packages change. Add a reproducible environment
