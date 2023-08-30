@@ -211,6 +211,7 @@ Every package you install lives in your system library, accessible to all projec
 - Initialize the project library once using `renv::init()`. This will create the `renv` folder (with its own `.gitignore`), a lockfile `renv.lock`, and an `.Rprofile` file.
 - Once you've installed packages, add them to the project library using `renv::snapshot()`.
 - To install the specific packages of an already-existing project library, use `renv::restore()`.
+- To update all packages in the project library, call `renv::update()`. Make sure code is working with the updated packages before calling `renv::snapshot()` to update the lockfile.
 
 Read [here](https://rstudio.github.io/renv/index.html) for more on using `{renv}`, including creating and maintaining Python environments.
 

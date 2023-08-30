@@ -352,6 +352,9 @@ by creating a project library using the `{renv}` package.
   `renv::snapshot()`.
 - To install the specific packages of an already-existing project
   library, use `renv::restore()`.
+- To update all packages in the project library, call `renv::update()`.
+  Make sure code is working with the updated packages before calling
+  `renv::snapshot()` to update the lockfile.
 
 Read [here](https://rstudio.github.io/renv/index.html) for more on using
 `{renv}`, including creating and maintaining Python environments.
