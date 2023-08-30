@@ -192,7 +192,7 @@ Each project has a similar organization. There are certain limitations on the si
 - `/figures` Figures live here, including images (saved as PNG files) and data referenced or used for tables, for use in the `README`, writing, and presentation.
 - `/presentations` Slides for presentations (without any PDF knits).
 - `/renv` Information on the reproducible environment (see below).
-- `/writing` The paper (using the paper template but without any PDF knits) and case studies on specific aspects related to the project (with the output set to `github_document`).
+- `/writing` The paper (using the paper template but without any PDF knits) and case studies on specific aspects related to the project (with the output set to `gfm`).
 - `.Rprofile` Information on the reproducible environment (see below).
 - `README` The abstract and project organization details.
 - `renv.lock` Information on the reproducible environment (see below).

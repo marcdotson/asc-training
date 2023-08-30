@@ -322,7 +322,7 @@ starting a new project, please set up the repo using the
 - `/renv` Information on the reproducible environment (see below).
 - `/writing` The paper (using the paper template but without any PDF
   knits) and case studies on specific aspects related to the project
-  (with the output set to `github_document`).
+  (with the output set to `gfm`).
 - `.Rprofile` Information on the reproducible environment (see below).
 - `README` The abstract and project organization details.
 - `renv.lock` Information on the reproducible environment (see below).
