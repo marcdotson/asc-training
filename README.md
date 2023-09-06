@@ -293,6 +293,8 @@ $$
 ### Links
 
 - [Quarto](https://quarto.org)
+- [Quarto for
+  Academics](https://quarto.org/docs/blog/posts/2023-05-22-quarto-for-academics/)
 - [Quarto
   questions](https://occasionaldivergences.com/posts/quarto-questions/)
 - [The YAML
