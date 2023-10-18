@@ -317,7 +317,7 @@ starting a new project, please set up the repo using the
 - `/code` Each script should do something specific (like tidyverse
   functions), have a descriptive name, and include number prefixes if
   they are meant to be run in a certain order (e.g., `01_import-data.R`,
-  `02_clean-data.R`).
+  `02_clean-data.R`) and functions in `/code/src`.
 - `/data` While all data live here, only data that are small enough and
   can be shared publicly will be pushed.
 - `/figures` Figures live here, including images (saved as PNG files)
@@ -360,6 +360,37 @@ by creating a project library using the `{renv}` package.
 - To update all packages in the project library, call `renv::update()`.
   Make sure code is working with the updated packages before calling
   `renv::snapshot()` to update the lockfile.
+
+<div>
+
+> **Non-Standard Repositories**
+>
+> If a package you’re using has a non-standard repository (i.e., not on
+> CRAN or another supported repository network), you’ll need to update
+> the `renv.lock` file to ensure the environment remains reproducible.
+> When `renv::status()` runs it will tell you if a repository you
+> downloaded a package from is non-standard and has difficulty tracking.
+>
+> For example, for Stan packages, the R entry in the json `renv.lock`
+> file will need to include:
+>
+>     {
+>       "R": {
+>         "Version": "4.3.1",
+>         "Repositories": [
+>           {
+>             "Name": "CRAN",
+>             "URL": "https://packagemanager.posit.co/cran/latest"
+>           },
+>           {
+>             "Name": "Stan",
+>             "URL": "https://mc-stan.org/r-packages"
+>           }
+>         ]
+>       }
+>     }
+
+</div>
 
 Read [here](https://rstudio.github.io/renv/index.html) for more on using
 `{renv}`, including creating and maintaining Python environments.
