@@ -137,7 +137,7 @@ easier to navigate.
 ### Links
 
 - [Happy Git and GitHub for the useR](https://happygitwithr.com)
-- [What They Forgot to Teach You About R](https://whattheyforgot.org)
+- [What They Forgot to Teach You About R](https://rstats.wtf)
 
 ## Using Quarto
 
