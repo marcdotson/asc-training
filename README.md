@@ -1,4 +1,7 @@
-# Research Assistant Training
+# ASC Training
+
+
+**Currently being revised and expanded…**
 
 ## Using GitHub
 
@@ -361,9 +364,9 @@ by creating a project library using the `{renv}` package.
   Make sure code is working with the updated packages before calling
   `renv::snapshot()` to update the lockfile.
 
-<div>
-
-> **Non-Standard Repositories**
+> [!TIP]
+>
+> ### Non-Standard Repositories
 >
 > If a package you’re using has a non-standard repository (i.e., not on
 > CRAN or another supported repository network), you’ll need to update
@@ -389,8 +392,6 @@ by creating a project library using the `{renv}` package.
 >         ]
 >       }
 >     }
-
-</div>
 
 Read [here](https://rstudio.github.io/renv/index.html) for more on using
 `{renv}`, including creating and maintaining Python environments.

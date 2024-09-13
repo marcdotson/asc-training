@@ -1,7 +1,9 @@
 ---
-title: "Research Assistant Training"
+title: "ASC Training"
 format: gfm
 ---
+
+**Currently being revised and expanded...**
 
 ## Using GitHub
 
