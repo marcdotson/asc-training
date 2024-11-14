@@ -161,7 +161,12 @@ easier to navigate.
 >
 > The following Quarto details are written primarily for R users. I am
 > working to generalize this for Pythonistas as well, including how
-> Quarto differs from Jupyter Notebooks.
+> Quarto differs from Jupyter Notebooks. See:
+>
+> - [Introduction to
+>   Quarto](https://posit-conf-2024.github.io/quarto-intro/)
+> - [Build-a-Dashboard
+>   Workshop](https://posit-conf-2024.github.io/quarto-dashboards/)
 
 Quarto is a powerful typesetting tool and the multilingual replacement
 for R Markdown. Instead of writing in Word or a Google Doc, by using

@@ -83,7 +83,10 @@ Voila! A cleaned up branch drop down in your Git pane makes things easier to nav
 ## Using Quarto
 
 ::: {.callout-caution}
-The following Quarto details are written primarily for R users. I am working to generalize this for Pythonistas as well, including how Quarto differs from Jupyter Notebooks.
+The following Quarto details are written primarily for R users. I am working to generalize this for Pythonistas as well, including how Quarto differs from Jupyter Notebooks. See:
+
+- [Introduction to Quarto](https://posit-conf-2024.github.io/quarto-intro/)
+- [Build-a-Dashboard Workshop](https://posit-conf-2024.github.io/quarto-dashboards/)
 :::
 
 Quarto is a powerful typesetting tool and the multilingual replacement for R Markdown. Instead of writing in Word or a Google Doc, by using Quarto we can include code blocks, parameterize the document to easily replicate reports, and output our work as Word documents, PDFs, PowerPoint presentations, HTML slide decks, GitHub pages, etc.
