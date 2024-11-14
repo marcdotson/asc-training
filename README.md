@@ -1,8 +1,6 @@
 # ASC Training
 
 
-**Currently being revised and expanded…**
-
 ## Using GitHub
 
 GitHub is a powerful collaboration and version control tool. We will be
@@ -47,11 +45,17 @@ favor and impose good version controls on your code.
 
 ### Set-Up
 
-To get started, complete Jenny Bryan’s [pre-workshop
-set-up](https://happygitwithr.com/workshops.html?mkt_tok=eyJpIjoiT1RVelptVTNZams0T0dZMiIsInQiOiJlR0orVlVpaHZsRlwveWh5QUJPN2U1Q3BcL0pHVHo5RXJ5UkhabFlwVXM4NlEwcHhRTENQZmVxaEEyNnVLSkRFTTdVa0hyNjk4MkFHYUU1Nkt5VXNtRm9heFM3N3dnUFplZ1V5anpRTWdnWDVscE1lOUR6VzBHaGFQOUFhOGd1QkN3In0=#pre-workshop-set-up).
-This can take up to a few hours, so plan accordingly. Note that the
-following Git and GitHub training draws heavily from Jenny Bryan’s
-training on using Git and GitHub from rstudio::conf(2019).
+> [!CAUTION]
+>
+> These setup details are R and RStudio-specific. I am working on
+> generalizing this to [Positron](https://positron.posit.co) for use
+> with R and Python.
+>
+> To get started, complete Jenny Bryan’s [pre-workshop
+> set-up](https://happygitwithr.com/workshops.html?mkt_tok=eyJpIjoiT1RVelptVTNZams0T0dZMiIsInQiOiJlR0orVlVpaHZsRlwveWh5QUJPN2U1Q3BcL0pHVHo5RXJ5UkhabFlwVXM4NlEwcHhRTENQZmVxaEEyNnVLSkRFTTdVa0hyNjk4MkFHYUU1Nkt5VXNtRm9heFM3N3dnUFplZ1V5anpRTWdnWDVscE1lOUR6VzBHaGFQOUFhOGd1QkN3In0=#pre-workshop-set-up).
+> This can take up to a few hours, so plan accordingly. Note that the
+> following Git and GitHub training draws heavily from Jenny Bryan’s
+> training on using Git and GitHub from rstudio::conf(2019).
 
 ### GitHub Basics
 
