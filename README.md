@@ -1,7 +1,22 @@
 # ASC Training
 
 
+## Using Positron
+
+> [!CAUTION]
+>
+> To generalize for R and Python use, I am adding a section on using
+> [Positron](https://positron.posit.co). For a short introduction, see
+> this [blog
+> post](https://occasionaldivergences.com/posts/positron-intro/).
+
 ## Using GitHub
+
+> [!CAUTION]
+>
+> Some of the following GitHub details include instructions that are
+> RStudio-specific. I am working on generalizing this to
+> [Positron](https://positron.posit.co) for use with both R and Python.
 
 GitHub is a powerful collaboration and version control tool. We will be
 using it for *project management*, *writing*, and *coding*.
@@ -45,17 +60,11 @@ favor and impose good version controls on your code.
 
 ### Set-Up
 
-> [!CAUTION]
->
-> These setup details are R and RStudio-specific. I am working on
-> generalizing this to [Positron](https://positron.posit.co) for use
-> with R and Python.
->
-> To get started, complete Jenny Bryan’s [pre-workshop
-> set-up](https://happygitwithr.com/workshops.html?mkt_tok=eyJpIjoiT1RVelptVTNZams0T0dZMiIsInQiOiJlR0orVlVpaHZsRlwveWh5QUJPN2U1Q3BcL0pHVHo5RXJ5UkhabFlwVXM4NlEwcHhRTENQZmVxaEEyNnVLSkRFTTdVa0hyNjk4MkFHYUU1Nkt5VXNtRm9heFM3N3dnUFplZ1V5anpRTWdnWDVscE1lOUR6VzBHaGFQOUFhOGd1QkN3In0=#pre-workshop-set-up).
-> This can take up to a few hours, so plan accordingly. Note that the
-> following Git and GitHub training draws heavily from Jenny Bryan’s
-> training on using Git and GitHub from rstudio::conf(2019).
+To get started, complete Jenny Bryan’s [pre-workshop
+set-up](https://happygitwithr.com/workshops.html?mkt_tok=eyJpIjoiT1RVelptVTNZams0T0dZMiIsInQiOiJlR0orVlVpaHZsRlwveWh5QUJPN2U1Q3BcL0pHVHo5RXJ5UkhabFlwVXM4NlEwcHhRTENQZmVxaEEyNnVLSkRFTTdVa0hyNjk4MkFHYUU1Nkt5VXNtRm9heFM3N3dnUFplZ1V5anpRTWdnWDVscE1lOUR6VzBHaGFQOUFhOGd1QkN3In0=#pre-workshop-set-up).
+This can take up to a few hours, so plan accordingly. Note that the
+following Git and GitHub training draws heavily from Jenny Bryan’s
+training on using Git and GitHub from rstudio::conf(2019).
 
 ### GitHub Basics
 
@@ -147,6 +156,12 @@ easier to navigate.
 - [What They Forgot to Teach You About R](https://rstats.wtf)
 
 ## Using Quarto
+
+> [!CAUTION]
+>
+> The following Quarto details are written primarily for R users. I am
+> working to generalize this for Pythonistas as well, including how
+> Quarto differs from Jupyter Notebooks.
 
 Quarto is a powerful typesetting tool and the multilingual replacement
 for R Markdown. Instead of writing in Word or a Google Doc, by using
@@ -352,6 +367,11 @@ the `.gitignore` file to add other folders and files that aren’t pushed
 to GitHub.
 
 ## Reproducible Environment
+
+> [!CAUTION]
+>
+> The Project Organization section is being worked on to also include
+> Python-only virtual environments.
 
 Every package you install lives in your system library, accessible to
 all projects. However, packages change. Add a reproducible environment
