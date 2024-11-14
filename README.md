@@ -163,6 +163,7 @@ easier to navigate.
 > working to generalize this for Pythonistas as well, including how
 > Quarto differs from Jupyter Notebooks. See:
 >
+> - [Quarto Gallery](https://quarto.org/docs/gallery/)
 > - [Introduction to
 >   Quarto](https://posit-conf-2024.github.io/quarto-intro/)
 > - [Build-a-Dashboard

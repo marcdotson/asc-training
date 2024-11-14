@@ -85,6 +85,7 @@ Voila! A cleaned up branch drop down in your Git pane makes things easier to nav
 ::: {.callout-caution}
 The following Quarto details are written primarily for R users. I am working to generalize this for Pythonistas as well, including how Quarto differs from Jupyter Notebooks. See:
 
+- [Quarto Gallery](https://quarto.org/docs/gallery/)
 - [Introduction to Quarto](https://posit-conf-2024.github.io/quarto-intro/)
 - [Build-a-Dashboard Workshop](https://posit-conf-2024.github.io/quarto-dashboards/)
 :::
