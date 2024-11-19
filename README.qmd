@@ -95,7 +95,7 @@ Notes from the [Quarto Crash Course](https://www.youtube.com/watch?app=desktop&v
 
 - Bridge the gap between coding environments that you might enjoy and output formats that you need to produce results in to inform decision-making.
 - Does Positron's base install now include Quarto or does it need to be added as an extension?
-- Include a project format file in _quarto.yml to specify project: output-dir: folder-name.
+- Include a project format file in _quarto.yml to specify project: output-dir: folder-name. Also needed to set the working directory project: execute-dir: project.
 - Note the Visual Editor as an option, especially for markdown syntax (hello tables and citations).
 - quarto convert doc.qmd to convert a Quarto document into a Jupyter notebook and the render with quarto render doc.ipynb.
 - Formatting with CSS-like divs and spans.

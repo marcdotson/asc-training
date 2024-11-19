@@ -1,6 +1,8 @@
 # ASC Training
 
 
+Introduce what ASC Training means…
+
 ## Using Positron
 
 > [!CAUTION]
@@ -168,6 +170,33 @@ easier to navigate.
 >   Quarto](https://posit-conf-2024.github.io/quarto-intro/)
 > - [Build-a-Dashboard
 >   Workshop](https://posit-conf-2024.github.io/quarto-dashboards/)
+>
+> Notes from the [Quarto Crash
+> Course](https://www.youtube.com/watch?app=desktop&v=_VKxTPWDhA4)
+> series:
+>
+> - Bridge the gap between coding environments that you might enjoy and
+>   output formats that you need to produce results in to inform
+>   decision-making.
+> - Does Positron’s base install now include Quarto or does it need to
+>   be added as an extension?
+> - Include a project format file in \_quarto.yml to specify project:
+>   output-dir: folder-name. Also needed to set the working directory
+>   project: execute-dir: project.
+> - Note the Visual Editor as an option, especially for markdown syntax
+>   (hello tables and citations).
+> - quarto convert doc.qmd to convert a Quarto document into a Jupyter
+>   notebook and the render with quarto render doc.ipynb.
+> - Formatting with CSS-like divs and spans.
+> - Fenced div with layout?
+> - Parameters specified inside of a cell using \#\| or still in the
+>   YAML header itself? May be different for Python with “\#\| tags:
+>   [parameters](#parameters)”
+> - Is there something as simple as requirements.txt for R packages?
+> - Pathlib or OS libraries?
+> - Reference Gallery.
+> - What about GitHub pages as a format for creating a source website
+>   that’s hosted entirely on GitHub?
 
 Quarto is a powerful typesetting tool and the multilingual replacement
 for R Markdown. Instead of writing in Word or a Google Doc, by using
