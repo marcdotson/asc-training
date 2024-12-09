@@ -1,7 +1,16 @@
 # ASC Training
 
 
-Introduce what ASC Training means…
+This repo is a collection of training resources for students working on
+projects at the [Analytics Solutions
+Center](https://huntsman.usu.edu/asc/). The ASC collaborates with
+sponsor organizations to provide students at the [Jon M. Huntsman School
+of Business](https://huntsman.usu.edu), and [Utah State
+University](https://www.usu.edu) generally, with real-world experiences
+working on data-related projects. Each ASC project is mentored by a
+faculty member from the [Data Analytics and Information Systems
+Department](https://huntsman.usu.edu/dais/). The following training is
+provided for students on projects that I mentor.
 
 ## Using Positron
 
