@@ -3,7 +3,7 @@
 
 This repo is a collection of training resources for students working on
 projects at the [Analytics Solutions
-Center](https://huntsman.usu.edu/asc/). The ASC collaborates with
+Center](https://huntsman.usu.edu/asc/) (ASC). The ASC collaborates with
 sponsor organizations to provide students at the [Jon M. Huntsman School
 of Business](https://huntsman.usu.edu), and [Utah State
 University](https://www.usu.edu) generally, with real-world experiences
@@ -12,14 +12,21 @@ faculty member from the [Data Analytics and Information Systems
 Department](https://huntsman.usu.edu/dais/). The following training is
 provided for students on projects that I mentor.
 
-## Using Positron
+## Positron
 
-> [!CAUTION]
->
-> To generalize for R and Python use, I am adding a section on using
-> [Positron](https://positron.posit.co). For a short introduction, see
-> this [blog
-> post](https://occasionaldivergences.com/posts/positron-intro/).
+A reliable integrated development environment (IDE) is arguably your
+most important tool as a data analyst or data engineer. There are many
+options, but I recommend [Positron](https://positron.posit.co), a
+next-generation data science IDE. Built on VS Code’s [open source
+core](https://github.com/microsoft/vscode), Positron combines the
+multilingual extensibility of [VS Code](https://code.visualstudio.com/)
+with data tools common to language-specific IDEs.
+
+### Variables Pane
+
+### Data Explorer
+
+### 
 
 ## Using GitHub
 
@@ -414,8 +421,8 @@ to GitHub.
 
 > [!CAUTION]
 >
-> The Project Organization section is being worked on to also include
-> Python-only virtual environments.
+> The Reproducible Environment section is being worked on to also
+> include Python-only virtual environments.
 
 Every package you install lives in your system library, accessible to
 all projects. However, packages change. Add a reproducible environment
