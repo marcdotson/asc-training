@@ -12,6 +12,8 @@ faculty member from the [Data Analytics and Information Systems
 Department](https://huntsman.usu.edu/dais/). The following training is
 provided for students on projects that I mentor.
 
+## Python
+
 ## Positron
 
 A reliable integrated development environment (IDE) is arguably your
@@ -20,13 +22,31 @@ options, but I recommend [Positron](https://positron.posit.co), a
 next-generation data science IDE. Built on VS Code’s [open source
 core](https://github.com/microsoft/vscode), Positron combines the
 multilingual extensibility of [VS Code](https://code.visualstudio.com/)
-with data tools common to language-specific IDEs.
+with essential data tools common to language-specific IDEs.
 
-### Variables Pane
+<img src="../figures/positron-logo.png" style="width:40.0%"
+data-fig-align="right" />
 
 ### Data Explorer
 
-### 
+Open CSV and Parquet files to preview without even importing first.
+
+### Variables Pane
+
+### Plots Pane
+
+Dedicated space for visualizations.
+
+### Help Pane
+
+Question mark after command.
+
+Copy examples.
+
+### Viewer Pane
+
+Communication. View locally hosted URL and rendered documents from
+Quarto. Dashboards.
 
 ## Using GitHub
 

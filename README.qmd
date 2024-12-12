@@ -5,15 +5,35 @@ format: gfm
 
 This repo is a collection of training resources for students working on projects at the [Analytics Solutions Center](https://huntsman.usu.edu/asc/) (ASC). The ASC collaborates with sponsor organizations to provide students at the [Jon M. Huntsman School of Business](https://huntsman.usu.edu), and [Utah State University](https://www.usu.edu) generally, with real-world experiences working on data-related projects. Each ASC project is mentored by a faculty member from the [Data Analytics and Information Systems Department](https://huntsman.usu.edu/dais/). The following training is provided for students on projects that I mentor.
 
+## Python
+
+
+
 ## Positron
 
-A reliable integrated development environment (IDE) is arguably your most important tool as a data analyst or data engineer. There are many options, but I recommend [Positron](https://positron.posit.co), a next-generation data science IDE. Built on VS Code's [open source core](https://github.com/microsoft/vscode), Positron combines the multilingual extensibility of [VS Code](https://code.visualstudio.com/) with data tools common to language-specific IDEs. 
+A reliable integrated development environment (IDE) is arguably your most important tool as a data analyst or data engineer. There are many options, but I recommend [Positron](https://positron.posit.co), a next-generation data science IDE. Built on VS Code's [open source core](https://github.com/microsoft/vscode), Positron combines the multilingual extensibility of [VS Code](https://code.visualstudio.com/) with essential data tools common to language-specific IDEs.
 
-### Variables Pane
+![](../figures/positron-logo.png){width=40% fig-align="right"}
 
 ### Data Explorer
 
-### 
+Open CSV and Parquet files to preview without even importing first.
+
+### Variables Pane
+
+### Plots Pane
+
+Dedicated space for visualizations.
+
+### Help Pane
+
+Question mark after command.
+
+Copy examples.
+
+### Viewer Pane
+
+Communication. View locally hosted URL and rendered documents from Quarto. Dashboards.
 
 ## Using GitHub
 
