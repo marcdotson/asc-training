@@ -18,6 +18,8 @@ Installing Python locally (i.e., on your computer), along with
 maintaining a reproducible environment, can be challenging for even
 advanced users. As immortalized by XKCD:
 
+<img src="figures/xkcd_python-env.png" width="200">
+
 <img src="figures/xkcd_python-env.png" data-fig-align="center" />
 
 An environment is composed of the Python, libraries, and library
