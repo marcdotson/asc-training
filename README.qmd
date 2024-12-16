@@ -1,10 +1,9 @@
 ---
 title: "ASC Training"
 format: gfm
-fig-width: 60
 ---
 
-This repo is a collection of training resources for students working on projects at the [Analytics Solutions Center](https://huntsman.usu.edu/asc/) (ASC). The ASC collaborates with sponsor organizations to provide students at the [Jon M. Huntsman School of Business](https://huntsman.usu.edu), and [Utah State University](https://www.usu.edu) generally, with real-world experiences working on data-related projects. Each ASC project is mentored by a faculty member from the [Data Analytics and Information Systems Department](https://huntsman.usu.edu/dais/). The following training is provided for students on projects that I mentor.
+This repo is a collection of training resources for students working on projects at the [Analytics Solutions Center](https://huntsman.usu.edu/asc/) (ASC). The ASC collaborates with sponsor organizations to provide students at the [Jon M. Huntsman School of Business](https://huntsman.usu.edu), and [Utah State University](https://www.usu.edu) generally, with real-world experiences working on data-related projects. Each ASC project is mentored by a faculty member from the [Data Analytics and Information Systems Department](https://huntsman.usu.edu/dais/). The following training is provided for students on projects that I mentor, in conjunction with repositories using my [asc-template](https://github.com/marcdotson/asc-template).
 
 ## Python
 
@@ -14,35 +13,57 @@ Installing Python locally (i.e., on your computer), along with maintaining a rep
 <img src="figures/xkcd_python-env.png" width="400">
 </p>
 
-An environment is composed of the Python, libraries, and library dependencies used for a given project. What makes an environment reproducible is keeping track of *which* version of the Python, libraries, and library dependencies we're using for our given project. While "keeping track" could happen in many different ways, ideally we want to keep track of our environment such that it can be easily *reproduced* on another machine, by you (including future you) or someone else. For our purposes, we need to be sure that everyone associated with our ASC project, including anyone at the sponsor organization, can easily reproduce our environment and run the associated code.
+An environment is composed of the Python, libraries, and library dependencies used for a given project. What makes an environment reproducible is keeping track of *which* version of the Python, libraries, and library dependencies we're using for a given project. While "keeping track" could happen in many different ways, ideally we want to keep track of our environment such that it can be easily *reproduced* on another machine, by you (including future you) or someone else. For our purposes, we need to be sure that everyone working on our ASC project, including anyone at the sponsor organization, can easily reproduce our environment and run the associated code.
 
-Python is a big tent, and there are many ways to manage an environment. I recommend using [pyenv](https://github.com/pyenv/pyenv) to install and maintain Python versions and [venv](https://docs.python.org/3/library/venv.html) to keep track of library and dependency versions and thus create a reproducible environment.
+Python is a big tent, and there are many ways to manage an environment. I recommend using [pyenv](https://github.com/pyenv/pyenv) to install and maintain Python versions and [venv](https://docs.python.org/3/library/venv.html) to keep track of the version of the libraries and library dependencies within our project's reproducible environment.
 
 ### pyenv
 
-We need to keep track of which version of Python we're using for a number of reasons. Here's a few:
+We need to keep track of which version of Python we're using for a number of reasons. Here's two:
 
 - Not all Python versions are (or were) backwards compatible (i.e., if someone runs our code with a different version of Python, it might not work).
-- Python comes pre-installed on many operating systems since some of the actual operating system uses that specific version of Python. This is a version you *should not be used* for any project work.
+- Python comes pre-installed on many operating systems since some of the actual operating system uses that specific version of Python. This is a version *should not be used* for any project work.
 
-For these reasons (if not the last one alone) along with others, we need the ability to maintain multiple versions of Python on the same computer. [pyenv](https://github.com/pyenv/pyenv) is Python version management tool that is designed to be as *simple* as possible. Though what constitutes "simple" is a matter of experience and your mileage may vary.
+For these and other reasons (if not the last one alone), we need the ability to maintain multiple versions of Python on the same computer. [pyenv](https://github.com/pyenv/pyenv) is a Python version management tool that is designed to be as *simple* as possible. Though what constitutes "simple" is a matter of experience and your mileage may vary.
 
 ::: {.callout-warning title="Using the Command Line"}
-While pyenv is simple, it will require you to use the command line (i.e., terminal or shell). Be patient and *take your time* walking carefully through the [installation instructions](https://github.com/pyenv/pyenv#installation). Daniel Chen, who introduced me to pyenv, also has a [great write-up](https://chendaniely.github.io/python_setup/210-python_install.html) of the installation instructions that may be a bit easier to follow. A few things to help as you install:
+While pyenv is simple, it will require you to use the command line (i.e., terminal or shell). Be patient and *take your time* walking carefully through the [installation instructions](https://github.com/pyenv/pyenv?tab=readme-ov-file#installation). Daniel Chen, who introduced me to pyenv, also has a [great write-up](https://chendaniely.github.io/python_setup/210-python_install.html) of the installation instructions that may be a bit easier to follow. A few things to help as you install:
 
 - The command line is the programming interface into your operating system itself. You don't have to know everything about it to follow instructions.
-- When you get to the section [Set up your shell environment for pyenv](https://github.com/pyenv/pyenv#set-up-your-shell-environment-for-pyenv), the instructions are different based on the *type* of command line. If you're on a Mac that's running macOS Catalina 10.15.7 or later, the terminal is Zsh. If you're using Linux, the shell is Bash (and you probably already know that).
+- When you get to the section [Set up your shell environment for pyenv](https://github.com/pyenv/pyenv?tab=readme-ov-file#b-set-up-your-shell-environment-for-pyenv), the instructions are different based on the *type* of command line. If you're on a Mac that's running macOS Catalina 10.15.7 or later, the terminal is Zsh. If you're using Linux, the shell is Bash (and you probably already know that). And if you're using Windows, you'll be using the [pyenv-win](https://github.com/pyenv-win/pyenv-win) fork with PowerShell.
 :::
 
-Now that you have pyenv installed, you can install and manage all the versions of Python on your computer. To see what versions you already have installed, on the command line, run `pyenv versions`. At first this is probably just the system version. Note that if you've installed Python before pyenv, it won't be listed: `pyenv versions` will only list the system version and any additional versions you install using pyenv. To see all the available versions of Python that you can install, run `pyenv install --list`. This can be overwhelming, but a good place to start is the latest version of Python that has a stable release (i.e., doesn't have a `-dev` tag). For example, to install Python 3.11.5, run `pyenv install 3.11.5`.
+Now that you have pyenv installed, you can install and manage all the versions of Python on your computer. To see what versions you already have installed, on the command line, run `pyenv versions`. At first this is probably just the system version. Note that if you've installed Python before pyenv, it won't be listed: `pyenv versions` will only list the system version and any additional versions you install using pyenv. To see all the available versions of Python that you can install, run `pyenv install --list`. This can be overwhelming, but a good place to start is the latest version of Python that has a stable release (i.e., doesn't have a `-dev` tag). For example, to install Python 3.12.4, run `pyenv install 3.12.4`.
 
-Remember how you shouldn't use the system version of Python? You can set the default version of Python that you'll use (leaving the operating system to do it's own thing). For example, to set Python 3.11.5 as the default global version, run `pyenv global 3.11.5`. If you run `pyenv versions` again you should see an asterisk by the global default you specified.
+Remember how you shouldn't use the operating system version of Python? You can set the default version of Python that you'll use (leaving the operating system to do it's own thing). For example, to set Python 3.12.4 as the default global version, run `pyenv global 3.12.4`. If you run `pyenv versions` again you should see an asterisk by the global default you specified.
 
 There's a lot more that [pyenv can do](https://realpython.com/intro-to-pyenv/), but now you should at least be set to safely manage and use Python.
 
+::: {.callout-note title="`.python-version`"}
+Just like we can specify a global default version of Python using pyenv, we can also specify a *local* default version of Python using pyenv as part of our reproducible environment. Note that this has already been done if the project repository was generated using my [asc-template](https://github.com/marcdotson/asc-template).
+
+To create this on your own, or modify an existing `.python-version` file, after navigating to the project's working directory in the command line, you would run `pyenv local 3.12.4`, assuming you want Python 3.12.4 to be set as the default. This would create (or modify) a `.python-version` file in that directory that specifies the version of Python to use for that project.
+:::
+
 ### venv
 
-Okay, but *why*? Packages change. Functions get deprecated. And R and Python continue to evolve. Just because your project code works now doesn't mean that it will work for someone else or in the future. (Technically, your environment could be extended to your operating system version as well, depending on the project, but worrying about machine images is beyond the scope of this post.) Ensuring your project environment is reproducible enables collaboration, future-proofing, and open science.
+Why do we need to track the library and dependency versions we use? Libraries change. Functions, methods, and parameters get modified or deprecated. Python continues to evolve. Just because our project code works now doesn't mean that it will work for someone else or in the future. Ensuring our project environment is reproducible enables collaboration, future-proofing, and open science.
+
+By default, all libraries are installed in a single, global library known as the **system library**. What we need is a **project library**. This helps highlight an important feature of reproducible environments: Each project will have its own project library and thus be *isolated*. If two projects use different versions of the same package, they won't conflict with each other because they'll each have their own project library.
+
+Well, not *exactly*. {renv} uses something called a **global package cache**. You only ever need to install the version of a given package once. If that same version is needed for another project, {renv} will just link your project library to the corresponding package version in that global cache.
+
+Once again, this will isolate the Python project library for this project from the Python libraries for other projects. Unsurprisingly, Python also employs a global cache to avoid having to install the version of a given package more than once. (If you've installed Python prior to using pyenv, you may have a global cache that is borked. You can run `pip cache purge` in the command line to start fresh.)
+
+Once again, after you've installed the packages you need for your project (where you can call the command line *from* the Python console with a leading exclamation mark, for example `!pip install pandas`) you will again call `renv::snapshot()`. This function call will now check and record changes for both R and Python packages in the project. A Python-specific "lockfile" will also be created in the working directory called `requirements.txt`.
+
+Whenever you add new packages, or update the version of packages you're using, call `renv::snapshot()` again to update `requirements.txt` accordingly. When someone else is trying to reproduce your environment, once they have your project working directory, they simply need to call `renv::restore()` to install the correct version of the required packages. (Note that as of writing this, `renv::restore()` may only install the R packages. You may need to install the Python packages manually by calling `!pip install -r requirements.txt`, even though `renv::restore()` is designed to do this for you.)
+
+::: {.callout-note title="Using Reproducible Environments (Part Two)"}
+After navigating to your project's working directory in the command line, you would create a virtual environment for your project by running `python -m venv .venv`. This would create a `.venv` folder in the working directory that contained the project library or *virtual environment*.
+
+You would also need to activate this virtual environment whenever you started working in the project by running `source venv/bin/activate`. To update your lockfile equivalent, you would run `pip freeze > requirements.txt` (which is actually what `renv::snapshot()` runs for you). And to install the packages on a new machine, you would run `pip install -r requirements.txt` (which is actually what `renv::restore()` *should* run for you).
+:::
 
 > Positron communicates with Python via the IPykernel package, so it needs to be installed for the Python environment you want to use with Positron. If you are managing your Python project using a tool like venv or conda, add ipykernel to your requirements.txt file.
 
