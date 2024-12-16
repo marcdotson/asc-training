@@ -14,6 +14,68 @@ provided for students on projects that I mentor.
 
 ## Python
 
+Installing Python locally (i.e., on your computer), along with
+maintaining a reproducible environment, can be challenging for even
+advanced users. As immortalized by XKCD:
+
+<img src="figures/xkcd_python-env.png" style="width:60.0%"
+data-fig-align="center" />
+
+An environment is composed of the Python, libraries, and library
+dependencies used for a given project. What makes an environment
+reproducible is keeping track of *which* version of the Python,
+libraries, and library dependencies we’re using for our given project.
+While “keeping track” could happen in many different ways, ideally we
+want to keep track of our environment such that it can be easily
+*reproduced* on another machine, by you (including future you) or
+someone else. For our purposes, we need to be sure that everyone
+associated with our ASC project, including anyone at the sponsor
+organization, can easily reproduce our environment and run the
+associated code.
+
+Python is a big tent, and there are many ways to create reproducible
+environments. I recommend using [pyenv](https://github.com/pyenv/pyenv)
+to install and maintain Python versions and
+[venv](https://docs.python.org/3/library/venv.html) to keep track of
+library and dependency versions and thus create a reproducible
+environment.
+
+### pyenv
+
+We need to keep track of which version of Python we’re using for a
+number of reasons. Here’s a few:
+
+- Not all Python versions are (or were) backwards compatible (i.e., if
+  someone runs our code with a different version of Python, it might not
+  work).
+- Python comes pre-installed on many operating systems since some of the
+  actual operating system uses that specific version of Python. This is
+  a version you *should not use* for any of your project work.
+
+For these reasons (if not the last one alone) along with others, we need
+the ability to maintain multiple versions of Python on the same
+computer, which means we should invest the time to learn how to use a
+Python version management tool. Enter
+[pyenv](https://github.com/pyenv/pyenv), which is designed to be as
+*simple* as possible. Though what constitutes “simple” is a matter of
+experience and your mileage may vary.
+
+### venv
+
+Okay, but *why*? Packages change. Functions get deprecated. And R and
+Python continue to evolve. Just because your project code works now
+doesn’t mean that it will work for someone else or in the future.
+(Technically, your environment could be extended to your operating
+system version as well, depending on the project, but worrying about
+machine images is beyond the scope of this post.) Ensuring your project
+environment is reproducible enables collaboration, future-proofing, and
+open science.
+
+> Positron communicates with Python via the IPykernel package, so it
+> needs to be installed for the Python environment you want to use with
+> Positron. If you are managing your Python project using a tool like
+> venv or conda, add ipykernel to your requirements.txt file.
+
 ## Positron
 
 A reliable integrated development environment (IDE) is arguably your
@@ -26,6 +88,12 @@ with essential data tools common to language-specific IDEs.
 
 <img src="../figures/positron-logo.png" style="width:40.0%"
 data-fig-align="right" />
+
+- Why do I have to save a file before I can open another? Is it the same
+  file type? Some preference I can overwrite?
+- What about rainbow parentheses and indentations? Is that an extension?
+
+### Console
 
 ### Data Explorer
 
