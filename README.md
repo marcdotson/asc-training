@@ -18,7 +18,7 @@ Installing Python locally (i.e., on your computer), along with
 maintaining a reproducible environment, can be challenging for even
 advanced users. As immortalized by XKCD:
 
-<img src="figures/xkcd_python-env.png" style="width:60.0%"
+<img src="figures/xkcd_python-env.png" style="width:40.0%"
 data-fig-align="center" />
 
 An environment is composed of the Python, libraries, and library
@@ -86,7 +86,7 @@ core](https://github.com/microsoft/vscode), Positron combines the
 multilingual extensibility of [VS Code](https://code.visualstudio.com/)
 with essential data tools common to language-specific IDEs.
 
-<img src="../figures/positron-logo.png" style="width:40.0%"
+<img src="figures/positron-logo.png" style="width:40.0%"
 data-fig-align="right" />
 
 - Why do I have to save a file before I can open another? Is it the same
