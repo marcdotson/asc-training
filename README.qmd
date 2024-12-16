@@ -1,6 +1,7 @@
 ---
 title: "ASC Training"
 format: gfm
+fig-width: 60
 ---
 
 This repo is a collection of training resources for students working on projects at the [Analytics Solutions Center](https://huntsman.usu.edu/asc/) (ASC). The ASC collaborates with sponsor organizations to provide students at the [Jon M. Huntsman School of Business](https://huntsman.usu.edu), and [Utah State University](https://www.usu.edu) generally, with real-world experiences working on data-related projects. Each ASC project is mentored by a faculty member from the [Data Analytics and Information Systems Department](https://huntsman.usu.edu/dais/). The following training is provided for students on projects that I mentor.
@@ -9,7 +10,7 @@ This repo is a collection of training resources for students working on projects
 
 Installing Python locally (i.e., on your computer), along with maintaining a reproducible environment, can be challenging for even advanced users. As immortalized by XKCD:
 
-![](figures/xkcd_python-env.png){width=40% fig-align="center"}
+![](figures/xkcd_python-env.png){fig-align="center"}
 
 An environment is composed of the Python, libraries, and library dependencies used for a given project. What makes an environment reproducible is keeping track of *which* version of the Python, libraries, and library dependencies we're using for our given project. While "keeping track" could happen in many different ways, ideally we want to keep track of our environment such that it can be easily *reproduced* on another machine, by you (including future you) or someone else. For our purposes, we need to be sure that everyone associated with our ASC project, including anyone at the sponsor organization, can easily reproduce our environment and run the associated code.
 
