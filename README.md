@@ -34,9 +34,9 @@ associated with our ASC project, including anyone at the sponsor
 organization, can easily reproduce our environment and run the
 associated code.
 
-Python is a big tent, and there are many ways to create reproducible
-environments. I recommend using [pyenv](https://github.com/pyenv/pyenv)
-to install and maintain Python versions and
+Python is a big tent, and there are many ways to manage an environment.
+I recommend using [pyenv](https://github.com/pyenv/pyenv) to install and
+maintain Python versions and
 [venv](https://docs.python.org/3/library/venv.html) to keep track of
 library and dependency versions and thus create a reproducible
 environment.
@@ -51,15 +51,60 @@ number of reasons. Here’s a few:
   work).
 - Python comes pre-installed on many operating systems since some of the
   actual operating system uses that specific version of Python. This is
-  a version you *should not use* for any of your project work.
+  a version you *should not be used* for any project work.
 
 For these reasons (if not the last one alone) along with others, we need
 the ability to maintain multiple versions of Python on the same
-computer, which means we should invest the time to learn how to use a
-Python version management tool. Enter
-[pyenv](https://github.com/pyenv/pyenv), which is designed to be as
-*simple* as possible. Though what constitutes “simple” is a matter of
-experience and your mileage may vary.
+computer. [pyenv](https://github.com/pyenv/pyenv) is Python version
+management tool that is designed to be as *simple* as possible. Though
+what constitutes “simple” is a matter of experience and your mileage may
+vary.
+
+> [!WARNING]
+>
+> ### Using the Command Line
+>
+> While pyenv is simple, it will require you to use the command line
+> (i.e., terminal or shell). Be patient and *take your time* walking
+> carefully through the [installation
+> instructions](https://github.com/pyenv/pyenv#installation). Daniel
+> Chen, who introduced me to pyenv, also has a [great
+> write-up](https://chendaniely.github.io/python_setup/210-python_install.html)
+> of the installation instructions that may be a bit easier to follow. A
+> few things to help as you install:
+>
+> - The command line is the programming interface into your operating
+>   system itself. You don’t have to know everything about it to follow
+>   instructions.
+> - When you get to the section [Set up your shell environment for
+>   pyenv](https://github.com/pyenv/pyenv#set-up-your-shell-environment-for-pyenv),
+>   the instructions are different based on the *type* of command line.
+>   If you’re on a Mac that’s running macOS Catalina 10.15.7 or later,
+>   the terminal is Zsh. If you’re using Linux, the shell is Bash (and
+>   you probably already know that).
+
+Now that you have pyenv installed, you can install and manage all the
+versions of Python on your computer. To see what versions you already
+have installed, on the command line, run `pyenv versions`. At first this
+is probably just the system version. Note that if you’ve installed
+Python before pyenv, it won’t be listed: `pyenv versions` will only list
+the system version and any additional versions you install using pyenv.
+To see all the available versions of Python that you can install, run
+`pyenv install --list`. This can be overwhelming, but a good place to
+start is the latest version of Python that has a stable release (i.e.,
+doesn’t have a `-dev` tag). For example, to install Python 3.11.5, run
+`pyenv install 3.11.5`.
+
+Remember how you shouldn’t use the system version of Python? You can set
+the default version of Python that you’ll use (leaving the operating
+system to do it’s own thing). For example, to set Python 3.11.5 as the
+default global version, run `pyenv global 3.11.5`. If you run
+`pyenv versions` again you should see an asterisk by the global default
+you specified.
+
+There’s a lot more that [pyenv can
+do](https://realpython.com/intro-to-pyenv/), but now you should at least
+be set to safely manage and use Python.
 
 ### venv
 
