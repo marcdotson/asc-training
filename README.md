@@ -128,74 +128,56 @@ be set to safely manage and use Python.
 
 ### venv
 
-Why do we need to track the library and dependency versions we use?
-Libraries change. Functions, methods, and parameters get modified or
-deprecated. Python continues to evolve. Just because our project code
-works now doesn’t mean that it will work for someone else or in the
-future. Ensuring our project environment is reproducible enables
-collaboration, future-proofing, and open science.
+Why do we need to track the versions of the libraries and library
+dependencies we use?
+
+- Libraries change. Functions, methods, and parameters get modified or
+  deprecated. Python continues to evolve.
+- Just because our project code works now doesn’t mean that it will work
+  for someone else or in the future.
+
+Ensuring our project environment is reproducible enables collaboration,
+future-proofing, and open science.
 
 By default, all libraries are installed in a single, global library
-known as the **system library**. What we need is a **project library**.
-This helps highlight an important feature of reproducible environments:
-Each project will have its own project library and thus be *isolated*.
-If two projects use different versions of the same package, they won’t
-conflict with each other because they’ll each have their own project
-library.
+known as the *system library*. What we need is a *project library*. This
+helps highlight an important feature of reproducible environments: Each
+project will have its own project library and thus be *isolated*. If two
+projects use different versions of the same package, they won’t conflict
+with each other because they’ll each have their own project library.
+Well, not *exactly*. Python employs a global cache to avoid having to
+install the version of a given library more than once. (Note that if
+you’ve installed Python prior to using pyenv, you may have a global
+cache that is borked. You can run `pip cache purge` in the command line
+to start fresh.)
 
-Well, not *exactly*. {renv} uses something called a **global package
-cache**. You only ever need to install the version of a given package
-once. If that same version is needed for another project, {renv} will
-just link your project library to the corresponding package version in
-that global cache.
-
-Once again, this will isolate the Python project library for this
-project from the Python libraries for other projects. Unsurprisingly,
-Python also employs a global cache to avoid having to install the
-version of a given package more than once. (If you’ve installed Python
-prior to using pyenv, you may have a global cache that is borked. You
-can run `pip cache purge` in the command line to start fresh.)
-
-Once again, after you’ve installed the packages you need for your
-project (where you can call the command line *from* the Python console
-with a leading exclamation mark, for example `!pip install pandas`) you
-will again call `renv::snapshot()`. This function call will now check
-and record changes for both R and Python packages in the project. A
-Python-specific “lockfile” will also be created in the working directory
-called `requirements.txt`.
-
-Whenever you add new packages, or update the version of packages you’re
-using, call `renv::snapshot()` again to update `requirements.txt`
-accordingly. When someone else is trying to reproduce your environment,
-once they have your project working directory, they simply need to call
-`renv::restore()` to install the correct version of the required
-packages. (Note that as of writing this, `renv::restore()` may only
-install the R packages. You may need to install the Python packages
-manually by calling `!pip install -r requirements.txt`, even though
-`renv::restore()` is designed to do this for you.)
+The [venv](https://docs.python.org/3/library/venv.html) library comes
+pre-installed with Python as the default reproducible (or *virtual*,
+hence the v in venv) environment management tool. It works in two
+pieces. First, it creates a project library (see `/.venv` below).
+Second, it maintains a file called `requirements.txt` listing all of the
+versions of the libaries and library dependencies you’ve installed in
+your project library. Whenever you install new libraries or decided to
+update the versions of libraries you use, run
+`pip freeze > requirements.txt` to update `requirements.txt`. To add all
+of those same libraries on a new machine, once they have the project
+working directory, they simply need to run
+`pip install -r requirements.txt`.
 
 > [!NOTE]
 >
-> ### Using Reproducible Environments (Part Two)
+> ### `/.venv`
 >
-> After navigating to your project’s working directory in the command
-> line, you would create a virtual environment for your project by
-> running `python -m venv .venv`. This would create a `.venv` folder in
-> the working directory that contained the project library or *virtual
-> environment*.
+> Before the `requirements.txt` file can be created and updated, the
+> project library itself needs to be generated. It is a hidden folder
+> called `/.venv` that is not pushed to GitHub. Note that this has
+> already been done if the project repository was generated using my
+> [asc-template](https://github.com/marcdotson/asc-template).
 >
-> You would also need to activate this virtual environment whenever you
-> started working in the project by running `source venv/bin/activate`.
-> To update your lockfile equivalent, you would run
-> `pip freeze > requirements.txt` (which is actually what
-> `renv::snapshot()` runs for you). And to install the packages on a new
-> machine, you would run `pip install -r requirements.txt` (which is
-> actually what `renv::restore()` *should* run for you).
-
-> Positron communicates with Python via the IPykernel package, so it
-> needs to be installed for the Python environment you want to use with
-> Positron. If you are managing your Python project using a tool like
-> venv or conda, add ipykernel to your requirements.txt file.
+> To create this on your own, after navigating to your project’s working
+> directory in the command line, you would create the project library
+> for your project by running `python -m venv .venv`. This would create
+> a `/.venv` folder in the working directory.
 
 ## Positron
 
