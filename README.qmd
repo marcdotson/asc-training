@@ -26,7 +26,7 @@ We need to keep track of which version of Python we're using for a number of rea
 
 For these and other reasons (if not the last one alone), we need the ability to maintain multiple versions of Python on the same computer. [pyenv](https://github.com/pyenv/pyenv) is a Python version management tool that is designed to be as *simple* as possible. Though what constitutes "simple" is a matter of experience and your mileage may vary.
 
-::: {.callout-warning title="Using the Command Line"}
+::: {.callout-tip title="Using the Command Line"}
 While pyenv is simple, it will require you to use the command line (i.e., terminal or shell). Be patient and *take your time* walking carefully through the [installation instructions](https://github.com/pyenv/pyenv?tab=readme-ov-file#installation). Daniel Chen, who introduced me to pyenv, also has a [great write-up](https://chendaniely.github.io/python_setup/210-python_install.html) of the installation instructions that may be a bit easier to follow. A few things to help as you install:
 
 - The command line is the programming interface into your operating system itself. You don't have to know everything about it to follow instructions.

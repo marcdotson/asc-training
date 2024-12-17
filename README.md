@@ -61,7 +61,7 @@ tool that is designed to be as *simple* as possible. Though what
 constitutes “simple” is a matter of experience and your mileage may
 vary.
 
-> [!WARNING]
+> [!TIP]
 >
 > ### Using the Command Line
 >
