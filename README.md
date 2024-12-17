@@ -109,30 +109,13 @@ There’s a lot more that [pyenv can
 do](https://realpython.com/intro-to-pyenv/), but now you should at least
 be set to safely manage and use Python.
 
-> [!NOTE]
->
-> ### `.python-version`
->
-> Just like we can specify a global default version of Python using
-> pyenv, we can also specify a *local* default version of Python using
-> pyenv as part of our reproducible environment. Note that this has
-> already been done if the project repository was generated using my
-> [asc-template](https://github.com/marcdotson/asc-template).
->
-> To create this on your own, or modify an existing `.python-version`
-> file, after navigating to the project’s working directory in the
-> command line, you would run `pyenv local 3.12.4`, assuming you want
-> Python 3.12.4 to be set as the default. This would create (or modify)
-> a `.python-version` file in that directory that specifies the version
-> of Python to use for that project.
-
 ### venv
 
 Why do we need to track the versions of the libraries and library
 dependencies we use?
 
 - Libraries change. Functions, methods, and parameters get modified or
-  deprecated. Python continues to evolve.
+  deprecated.
 - Just because our project code works now doesn’t mean that it will work
   for someone else or in the future.
 
@@ -153,31 +136,11 @@ to start fresh.)
 
 The [venv](https://docs.python.org/3/library/venv.html) library comes
 pre-installed with Python as the default reproducible (or *virtual*,
-hence the v in venv) environment management tool. It works in two
-pieces. First, it creates a project library (see `/.venv` below).
-Second, it maintains a file called `requirements.txt` listing all of the
-versions of the libaries and library dependencies you’ve installed in
-your project library. Whenever you install new libraries or decided to
-update the versions of libraries you use, run
-`pip freeze > requirements.txt` to update `requirements.txt`. To add all
-of those same libraries on a new machine, once they have the project
-working directory, they simply need to run
-`pip install -r requirements.txt`.
-
-> [!NOTE]
->
-> ### `/.venv`
->
-> Before the `requirements.txt` file can be created and updated, the
-> project library itself needs to be generated. It is a hidden folder
-> called `/.venv` that is not pushed to GitHub. Note that this has
-> already been done if the project repository was generated using my
-> [asc-template](https://github.com/marcdotson/asc-template).
->
-> To create this on your own, after navigating to your project’s working
-> directory in the command line, you would create the project library
-> for your project by running `python -m venv .venv`. This would create
-> a `/.venv` folder in the working directory.
+hence the v in venv) environment management tool. It works in two steps.
+First, we must create a project library. Second, we keep track of the
+versions of the libraries and library dependencies that we use. However,
+the easiest way to implement our reproducible environment will require
+two additional tools: an IDE and version control.
 
 ## Positron
 
@@ -286,6 +249,50 @@ on. This is simply creating a local copy of the repo. You do this inside
 RStudio by creating a new project and selecting `Version Control > Git`.
 
 ![](figures/clone.png)
+
+> [!NOTE]
+>
+> ### `.python-version`, `/.venv`, and `requirements.txt`
+>
+> Just like we can specify a global default version of Python using
+> pyenv, we can also specify a *local* default version of Python using
+> pyenv as part of our reproducible environment. Note that this has
+> already been done if the project repository was generated using my
+> [asc-template](https://github.com/marcdotson/asc-template).
+>
+> To create this on your own, or modify an existing `.python-version`
+> file, after navigating to the project’s working directory in the
+> command line, you would run `pyenv local 3.12.4`, assuming you want
+> Python 3.12.4 to be set as the default. This would create (or modify)
+> a `.python-version` file in that directory that specifies the version
+> of Python to use for that project.
+>
+> First, it creates a project library (see `/.venv` below). Second, it
+> maintains a file called `requirements.txt` listing all of the versions
+> of the libaries and library dependencies you’ve installed in your
+> project library. Here’s how it works:
+>
+> - To add all of these same libraries on a new machine, once you have
+>   the project working directory, simply run
+>   `pip install -r requirements.txt`.
+> - Whenever you install new libraries or decide to update the versions
+>   of libraries you use, run `pip freeze > requirements.txt` to update
+>   `requirements.txt`.
+>
+> The `requirements.txt` from venv file, along with the hidden
+> `.python-version` file from pyenv, ensure that we have and can
+> maintain a reproducible environment for our project.
+>
+> Before the `requirements.txt` file can be created and updated, the
+> project library itself needs to be generated. It is a hidden folder
+> called `/.venv` that is not pushed to GitHub. Note that this has
+> already been done if the project repository was generated using my
+> [asc-template](https://github.com/marcdotson/asc-template).
+>
+> To create this on your own, after navigating to your project’s working
+> directory in the command line, you would create the project library
+> for your project by running `python -m venv .venv`. This would create
+> a `/.venv` folder in the working directory.
 
 #### Daily Work: Commit, Push, Pull
 
