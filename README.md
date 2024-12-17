@@ -16,48 +16,20 @@ repositories using my
 
 ## Python
 
-Installing Python locally (i.e., on your computer), along with
-maintaining a reproducible environment, can be challenging for even
-advanced users. As immortalized by XKCD:
+Installing Python can be challenging, even for advanced users. As
+immortalized by xkcd:
 
 <p align="center">
 <img src="figures/xkcd_python-env.png" width="400">
 </p>
 
-An environment is composed of the Python, libraries, and library
-dependencies used for a given project. What makes an environment
-reproducible is keeping track of *which* version of the Python,
-libraries, and library dependencies we’re using for a given project.
-While “keeping track” could happen in many different ways, ideally we
-want to keep track of our environment such that it can be easily
-*reproduced* on another machine, by you (including future you) or
-someone else. For our purposes, we need to be sure that everyone working
-on our ASC project, including anyone at the sponsor organization, can
-easily reproduce our environment and run the associated code.
-
-Python is a big tent, and there are many ways to manage an environment.
-I recommend using [pyenv](https://github.com/pyenv/pyenv) to install and
-maintain Python versions and
-[venv](https://docs.python.org/3/library/venv.html) to keep track of the
-version of the libraries and library dependencies within our project’s
-reproducible environment.
-
-### pyenv
-
-We need to keep track of which version of Python we’re using for a
-number of reasons. Here’s two:
-
-- Not all Python versions are (or were) backwards compatible (i.e., if
-  someone runs our code with a different version of Python, it might not
-  work).
-- Python comes pre-installed on many operating systems since some of the
-  actual operating system uses that specific version of Python. This is
-  a version *should not be used* for any project work.
-
-For these and other reasons (if not the last one alone), we need the
-ability to maintain multiple versions of Python on the same computer.
-[pyenv](https://github.com/pyenv/pyenv) is a Python version management
-tool that is designed to be as *simple* as possible. Though what
+Notably, Python comes pre-installed on some operating systems (OS). This
+version *should not be used* by anyone except the OS itself. For this
+and other reasons, we need the ability to maintain multiple versions of
+Python on the same computer. Python is a big tent, and there are many
+ways to install and maintain versions. I recommend using
+[pyenv](https://github.com/pyenv/pyenv), a Python version management
+tool that is designed to be as *simple* as possible, though what
 constitutes “simple” is a matter of experience and your mileage may
 vary.
 
@@ -65,18 +37,17 @@ vary.
 >
 > ### Using the Command Line
 >
-> While pyenv is simple, it will require you to use the command line
-> (i.e., terminal or shell). Be patient and *take your time* walking
-> carefully through the [installation
+> Using pyenv will require you to use the command line (i.e., terminal
+> or shell). Be patient and *take your time* walking carefully through
+> the [installation
 > instructions](https://github.com/pyenv/pyenv?tab=readme-ov-file#installation).
 > Daniel Chen, who introduced me to pyenv, also has a [great
 > write-up](https://chendaniely.github.io/python_setup/210-python_install.html)
 > of the installation instructions that may be a bit easier to follow. A
 > few things to help as you install:
 >
-> - The command line is the programming interface into your operating
->   system itself. You don’t have to know everything about it to follow
->   instructions.
+> - The command line is the programming interface into your OS itself.
+>   You don’t have to know everything about it to follow instructions.
 > - When you get to the section [Set up your shell environment for
 >   pyenv](https://github.com/pyenv/pyenv?tab=readme-ov-file#b-set-up-your-shell-environment-for-pyenv),
 >   the instructions are different based on the *type* of command line.
@@ -89,71 +60,37 @@ vary.
 Now that you have pyenv installed, you can install and manage all the
 versions of Python on your computer. To see what versions you already
 have installed, on the command line, run `pyenv versions`. At first this
-is probably just the system version. Note that if you’ve installed
-Python before pyenv, it won’t be listed: `pyenv versions` will only list
-the system version and any additional versions you install using pyenv.
-To see all the available versions of Python that you can install, run
+is probably just the OS version. Note that if you’ve installed Python
+before pyenv, it won’t be listed: `pyenv versions` will only list the OS
+version and any additional versions you install using pyenv. To see all
+the available versions of Python that you can install, run
 `pyenv install --list`. This can be overwhelming, but a good place to
 start is the latest version of Python that has a stable release (i.e.,
 doesn’t have a `-dev` tag). For example, to install Python 3.12.4, run
 `pyenv install 3.12.4`.
 
-Remember how you shouldn’t use the operating system version of Python?
-You can set the default version of Python that you’ll use (leaving the
-operating system to do it’s own thing). For example, to set Python
-3.12.4 as the default global version, run `pyenv global 3.12.4`. If you
-run `pyenv versions` again you should see an asterisk by the global
-default you specified.
+Remember how you shouldn’t use the OS version of Python? You can set the
+default version of Python that you’ll use (leaving the OS to do it’s own
+thing). For example, to set Python 3.12.4 as the default global version,
+run `pyenv global 3.12.4`. If you run `pyenv versions` again you should
+see an asterisk by the global default you specified.
 
 There’s a lot more that [pyenv can
-do](https://realpython.com/intro-to-pyenv/), but now you should at least
-be set to safely manage and use Python.
-
-### venv
-
-Why do we need to track the versions of the libraries and library
-dependencies we use?
-
-- Libraries change. Functions, methods, and parameters get modified or
-  deprecated.
-- Just because our project code works now doesn’t mean that it will work
-  for someone else or in the future.
-
-Ensuring our project environment is reproducible enables collaboration,
-future-proofing, and open science.
-
-By default, all libraries are installed in a single, global library
-known as the *system library*. What we need is a *project library*. This
-helps highlight an important feature of reproducible environments: Each
-project will have its own project library and thus be *isolated*. If two
-projects use different versions of the same package, they won’t conflict
-with each other because they’ll each have their own project library.
-Well, not *exactly*. Python employs a global cache to avoid having to
-install the version of a given library more than once. (Note that if
-you’ve installed Python prior to using pyenv, you may have a global
-cache that is borked. You can run `pip cache purge` in the command line
-to start fresh.)
-
-The [venv](https://docs.python.org/3/library/venv.html) library comes
-pre-installed with Python as the default reproducible (or *virtual*,
-hence the v in venv) environment management tool. It works in two steps.
-First, we must create a project library. Second, we keep track of the
-versions of the libraries and library dependencies that we use. However,
-the easiest way to implement our reproducible environment will require
-two additional tools: an IDE and version control.
+do](https://realpython.com/intro-to-pyenv/), but now you should be set
+to safely install and manage Python.
 
 ## Positron
 
-A reliable integrated development environment (IDE) is arguably your
-most important tool as a data analyst or data engineer. There are many
-options, but I recommend [Positron](https://positron.posit.co), a
-next-generation data science IDE. Built on VS Code’s [open source
+An integrated development environment (IDE), outside of an open source
+language, is arguably your most important tool as a data analyst or data
+engineer. There are many options, but I recommend
+[Positron](https://positron.posit.co), a next-generation data science
+IDE. Built on VS Code’s [open source
 core](https://github.com/microsoft/vscode), Positron combines the
 multilingual extensibility of [VS Code](https://code.visualstudio.com/)
 with essential data tools common to language-specific IDEs.
 
-<img src="figures/positron-logo.png" style="width:40.0%"
-data-fig-align="right" />
+### QUESTIONS
 
 - Why do I have to save a file before I can open another? Is it the same
   file type? Some preference I can overwrite?
@@ -161,15 +98,50 @@ data-fig-align="right" />
 
 ### Console
 
+The integrated console *just works*. There is a separate console for R
+and Python along with a drop-down to switch between the two. No more
+managing terminals. No more calling {{reticulate}} to launch Python and
+having to quit to switch back to R. In addition, the working directory
+for the project folder is tied to the console, obviating the need for
+RStudio projects or using the terminal to identify Python environments.
+
+<img src="figures/positron-logo.png" style="width:40.0%"
+data-fig-align="right" />
+
+While you can use the console drop-down to switch between R and Python,
+you can use the version drop-down in the top right to both switch
+between R and Python as well as *versions* of R and Python.
+
+<img src="figures/positron-05.png" style="width:90.0%"
+data-fig-align="center" />
+
+R and Python code are executed in the same way using Cmd/Cntrl + Enter,
+including consecutive lines of code if you method chain in Python!
+
+<img src="figures/positron-01.png" style="width:90.0%"
+data-fig-align="center" />
+
 ### Data Explorer
 
 Open CSV and Parquet files to preview without even importing first.
 
 ### Variables Pane
 
+RStudio’s environment pane comes to VS Code with Positron’s variables
+pane! This includes a beefed up data explorer that works for both R and
+Python objects.
+
+<img src="figures/positron-02.png" style="width:90.0%"
+data-fig-align="center" />
+
 ### Plots Pane
 
-Dedicated space for visualizations.
+A dedicated plots pane handles plots from R and Python in tandem,
+including a history gallery to click through and easily compare previous
+plots. This also includes support for interactive plots.
+
+<img src="figures/positron-03.png" style="width:90.0%"
+data-fig-align="center" />
 
 ### Help Pane
 
@@ -181,6 +153,16 @@ Copy examples.
 
 Communication. View locally hosted URL and rendered documents from
 Quarto. Dashboards.
+
+### Command palette
+
+The command palette is the primary way to manage options (e.g., pane
+layout views and themes) and is a mainstay of the shortcut-heavy VS
+Code, though it has been in RStudio for some time as well. Open with
+Cmd/Cntrl + Shift + P.
+
+<img src="figures/positron-04.png" style="width:90.0%"
+data-fig-align="center" />
 
 ## Using GitHub
 
@@ -615,12 +597,129 @@ clone without worrying about them being pushed. We can further modify
 the `.gitignore` file to add other folders and files that aren’t pushed
 to GitHub.
 
-## Reproducible Environment
+## Reproducible Environments
 
-> [!CAUTION]
+### New
+
+An environment is composed of the Python, libraries, and library
+dependencies used for a given project. What makes an environment
+reproducible is keeping track of *which* version of the Python,
+libraries, and library dependencies we’re using for a given project.
+While “keeping track” could happen in many different ways, ideally we
+want to keep track of our environment such that it can be easily
+*reproduced* on another machine, by you (including future you) or
+someone else. For our purposes, we need to be sure that everyone working
+on our ASC project, including anyone at the sponsor organization, can
+easily reproduce our environment and run the associated code.
+
+Python is a big tent, and there are many ways to manage an environment.
+I recommend using [pyenv](https://github.com/pyenv/pyenv) to install and
+maintain Python versions and
+[venv](https://docs.python.org/3/library/venv.html) to keep track of the
+version of the libraries and library dependencies and make our project’s
+environment reproducible.
+
+### pyenv
+
+We need to keep track of which version of Python we’re using for a
+number of reasons. Here’s two:
+
+- Not all Python versions are (or were) backwards compatible (i.e., if
+  someone runs our code with a different version of Python, it might not
+  work).
+- Python comes pre-installed on many operating systems since some of the
+  actual operating system uses that specific version of Python. This is
+  a version *should not be used* for any project work.
+
+For these and other reasons (if not the last one alone), we need the
+ability to maintain multiple versions of Python on the same computer.
+[pyenv](https://github.com/pyenv/pyenv) is a Python version management
+tool that is designed to be as *simple* as possible. Though what
+constitutes “simple” is a matter of experience and your mileage may
+vary.
+
+> [!TIP]
 >
-> The Reproducible Environment section is being worked on to also
-> include Python-only virtual environments.
+> ### Using the Command Line
+>
+> While pyenv is simple, it will require you to use the command line
+> (i.e., terminal or shell). Be patient and *take your time* walking
+> carefully through the [installation
+> instructions](https://github.com/pyenv/pyenv?tab=readme-ov-file#installation).
+> Daniel Chen, who introduced me to pyenv, also has a [great
+> write-up](https://chendaniely.github.io/python_setup/210-python_install.html)
+> of the installation instructions that may be a bit easier to follow. A
+> few things to help as you install:
+>
+> - The command line is the programming interface into your operating
+>   system itself. You don’t have to know everything about it to follow
+>   instructions.
+> - When you get to the section [Set up your shell environment for
+>   pyenv](https://github.com/pyenv/pyenv?tab=readme-ov-file#b-set-up-your-shell-environment-for-pyenv),
+>   the instructions are different based on the *type* of command line.
+>   If you’re on a Mac that’s running macOS Catalina 10.15.7 or later,
+>   the terminal is Zsh. If you’re using Linux, the shell is Bash (and
+>   you probably already know that). And if you’re using Windows, you’ll
+>   be using the [pyenv-win](https://github.com/pyenv-win/pyenv-win)
+>   fork with PowerShell.
+
+Now that you have pyenv installed, you can install and manage all the
+versions of Python on your computer. To see what versions you already
+have installed, on the command line, run `pyenv versions`. At first this
+is probably just the system version. Note that if you’ve installed
+Python before pyenv, it won’t be listed: `pyenv versions` will only list
+the system version and any additional versions you install using pyenv.
+To see all the available versions of Python that you can install, run
+`pyenv install --list`. This can be overwhelming, but a good place to
+start is the latest version of Python that has a stable release (i.e.,
+doesn’t have a `-dev` tag). For example, to install Python 3.12.4, run
+`pyenv install 3.12.4`.
+
+Remember how you shouldn’t use the operating system version of Python?
+You can set the default version of Python that you’ll use (leaving the
+operating system to do it’s own thing). For example, to set Python
+3.12.4 as the default global version, run `pyenv global 3.12.4`. If you
+run `pyenv versions` again you should see an asterisk by the global
+default you specified.
+
+There’s a lot more that [pyenv can
+do](https://realpython.com/intro-to-pyenv/), but now you should at least
+be set to safely manage and use Python.
+
+### venv
+
+Why do we need to track the versions of the libraries and library
+dependencies we use?
+
+- Libraries change. Functions, methods, and parameters get modified or
+  deprecated.
+- Just because our project code works now doesn’t mean that it will work
+  for someone else or in the future.
+
+Ensuring our project environment is reproducible enables collaboration,
+future-proofing, and open science.
+
+By default, all libraries are installed in a single, global library
+known as the *system library*. What we need is a *project library*. This
+helps highlight an important feature of reproducible environments: Each
+project will have its own project library and thus be *isolated*. If two
+projects use different versions of the same package, they won’t conflict
+with each other because they’ll each have their own project library.
+Well, not *exactly*. Python employs a global cache to avoid having to
+install the version of a given library more than once. (Note that if
+you’ve installed Python prior to using pyenv, you may have a global
+cache that is borked. You can run `pip cache purge` in the command line
+to start fresh.)
+
+The [venv](https://docs.python.org/3/library/venv.html) library comes
+pre-installed with Python as the default reproducible (or *virtual*,
+hence the v in venv) environment management tool. It works in two steps.
+First, we must create a project library. Second, we keep track of the
+versions of the libraries and library dependencies that we use. However,
+the easiest way to implement our reproducible environment will require
+two additional tools: an IDE and version control.
+
+### Old
 
 Every package you install lives in your system library, accessible to
 all projects. However, packages change. Add a reproducible environment
