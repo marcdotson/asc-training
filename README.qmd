@@ -3,7 +3,7 @@ title: "ASC Training"
 format: gfm
 ---
 
-This repo is a collection of training resources for students working on projects at the [Analytics Solutions Center](https://huntsman.usu.edu/asc/) (ASC). The ASC collaborates with sponsor organizations to provide students at the [Jon M. Huntsman School of Business](https://huntsman.usu.edu), and [Utah State University](https://www.usu.edu) generally, with real-world experiences working on data-related projects. Each ASC project is mentored by a faculty member from the [Data Analytics and Information Systems Department](https://huntsman.usu.edu/dais/). The following training is provided for students on projects that I mentor, in conjunction with repositories using my [asc-template](https://github.com/marcdotson/asc-template).
+This repo is a collection of training resources for students working on projects at the [Analytics Solutions Center](https://huntsman.usu.edu/asc/) (ASC). The ASC collaborates with sponsor organizations to provide students at the [Jon M. Huntsman School of Business](https://huntsman.usu.edu), and [Utah State University](https://www.usu.edu) generally, with real-world experiences working on data-related projects. Each ASC project is mentored by a faculty member from the [Data Analytics and Information Systems Department](https://huntsman.usu.edu/dais/). The following training is provided for students on projects that I mentor.
 
 ## Python
 
@@ -83,13 +83,11 @@ The command palette is the primary way to manage options (e.g., pane layout view
 
 ![](figures/positron-04.png){width=90% fig-align="center"}
 
-## Using GitHub
-
-::: {.callout-caution}
-Some of the following GitHub details include instructions that are RStudio-specific. I am working on generalizing this to [Positron](https://positron.posit.co) for use with both R and Python.
-:::
+## GitHub
 
 GitHub is a powerful collaboration and version control tool. We will be using it for *project management*, *writing*, and *coding*.
+
+in conjunction with repositories using my [asc-template](https://github.com/marcdotson/asc-template)
 
 ### Project Management
 

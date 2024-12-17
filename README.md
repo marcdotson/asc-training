@@ -10,9 +10,7 @@ University](https://www.usu.edu) generally, with real-world experiences
 working on data-related projects. Each ASC project is mentored by a
 faculty member from the [Data Analytics and Information Systems
 Department](https://huntsman.usu.edu/dais/). The following training is
-provided for students on projects that I mentor, in conjunction with
-repositories using my
-[asc-template](https://github.com/marcdotson/asc-template).
+provided for students on projects that I mentor.
 
 ## Python
 
@@ -164,16 +162,13 @@ Cmd/Cntrl + Shift + P.
 <img src="figures/positron-04.png" style="width:90.0%"
 data-fig-align="center" />
 
-## Using GitHub
-
-> [!CAUTION]
->
-> Some of the following GitHub details include instructions that are
-> RStudio-specific. I am working on generalizing this to
-> [Positron](https://positron.posit.co) for use with both R and Python.
+## GitHub
 
 GitHub is a powerful collaboration and version control tool. We will be
 using it for *project management*, *writing*, and *coding*.
+
+in conjunction with repositories using my
+[asc-template](https://github.com/marcdotson/asc-template)
 
 ### Project Management
 
