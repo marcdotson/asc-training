@@ -88,79 +88,86 @@ core](https://github.com/microsoft/vscode), Positron combines the
 multilingual extensibility of [VS Code](https://code.visualstudio.com/)
 with essential data tools common to language-specific IDEs.
 
-### QUESTIONS
+While Positron is still in active development, it’s more than stable
+enough for our work. After installing Python using pyenv (and specifying
+a non-OS version as a global default), go ahead and
+[download](https://positron.posit.co/download.html) and install
+Positron.
 
-- Why do I have to save a file before I can open another? Is it the same
-  file type? Some preference I can overwrite?
-- What about rainbow parentheses and indentations? Is that an extension?
+While there is a growing
+[guide](https://positron.posit.co/interpreters.html) for Positron, the
+following highlights some of the essential functionality specific to
+data analysis and data engineering. Note that since Positron is built on
+VS Code’s open source core, VS Code
+[documentation](https://code.visualstudio.com/docs) remains largely
+relevant.
 
-### Console
+### Console and Session
 
-The integrated console *just works*. There is a separate console for R
-and Python along with a drop-down to switch between the two. No more
-managing terminals. No more calling {{reticulate}} to launch Python and
-having to quit to switch back to R. In addition, the working directory
-for the project folder is tied to the console, obviating the need for
-RStudio projects or using the terminal to identify Python environments.
+If you’ve used VS Code, Positron’s layout will look familiar. The
+explorer on the left shows the folder you have open, which also
+establishes your working directory, and the central pane is where you
+type and run code. Two obvious differences are the integrated console
+(in the bottom pane by default) and the session information (in the
+right pane by default), which includes details of the variables and data
+that have been imported.
 
-<img src="figures/positron-logo.png" style="width:40.0%"
-data-fig-align="right" />
-
-While you can use the console drop-down to switch between R and Python,
-you can use the version drop-down in the top right to both switch
-between R and Python as well as *versions* of R and Python.
-
-<img src="figures/positron-05.png" style="width:90.0%"
+<img src="figures/positron-01_console-session.png" style="width:90.0%"
 data-fig-align="center" />
 
-R and Python code are executed in the same way using Cmd/Cntrl + Enter,
-including consecutive lines of code if you method chain in Python!
-
-<img src="figures/positron-01.png" style="width:90.0%"
-data-fig-align="center" />
+You can think of the console as a dedicated terminal where the code
+executes while the terminal (i.e., command line, also in the bottom pane
+by default) functions solely as a terminal with the folder you have open
+in the explorer *already identified as the working directory*. The
+variables and data in the session information help you keep track of
+what you’re working with.
 
 ### Data Explorer
 
-Open CSV and Parquet files to preview without even importing first.
+You can click on any data you have loaded (or even CSV or Parquet files
+in the explorer without importing first) to open the data explorer.
 
-### Variables Pane
-
-RStudio’s environment pane comes to VS Code with Positron’s variables
-pane! This includes a beefed up data explorer that works for both R and
-Python objects.
-
-<img src="figures/positron-02.png" style="width:90.0%"
+<img src="figures/positron-02_data-explorer.png" style="width:90.0%"
 data-fig-align="center" />
 
-### Plots Pane
+The data explorer is designed to facilitate coding, not replace it. The
+data explorer provides a summary of the data and allows you to quickly
+sort and filter the data so you can get back to programmatically going
+about data wrangling.
 
-A dedicated plots pane handles plots from R and Python in tandem,
-including a history gallery to click through and easily compare previous
-plots. This also includes support for interactive plots.
+### Plots
 
-<img src="figures/positron-03.png" style="width:90.0%"
+Along with variables and data, the session information has a dedicated
+location for plots, including a history gallery to click through and
+easily compare previous plots. This also includes support for
+interactive plots.
+
+<img src="figures/positron-03_plots.png" style="width:90.0%"
 data-fig-align="center" />
 
-### Help Pane
-
-Question mark after command.
-
-Copy examples.
-
-### Viewer Pane
-
-Communication. View locally hosted URL and rendered documents from
-Quarto. Dashboards.
-
-### Command palette
+### Command Palette
 
 The command palette is the primary way to manage options (e.g., pane
 layout views and themes) and is a mainstay of the shortcut-heavy VS
-Code, though it has been in RStudio for some time as well. Open with
-Cmd/Cntrl + Shift + P.
+Code. Open with Cmd/Cntrl + Shift + P.
 
-<img src="figures/positron-04.png" style="width:90.0%"
+<img src="figures/positron-04_command-palette.png" style="width:90.0%"
 data-fig-align="center" />
+
+### Interpreter Selection
+
+You can use the drop-down in the top right to select intepreters,
+including Python versions and other languages you have installed.
+
+<img src="figures/positron-05_interpreter-selection.png"
+style="width:90.0%" data-fig-align="center" />
+
+### Help
+
+Including a question mark after most any command will open the help (in
+the right pane by default). This serves as a built-in browser to allow
+you to reference online documentation, including parameter definitions
+and examples you can copy and use.
 
 ## GitHub
 
