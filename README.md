@@ -94,13 +94,11 @@ a non-OS version as a global default), go ahead and
 [download](https://positron.posit.co/download.html) and install
 Positron.
 
-While there is a growing
-[guide](https://positron.posit.co/interpreters.html) for Positron, the
-following highlights some of the essential functionality specific to
-data analysis and data engineering. Note that since Positron is built on
-VS Code’s open source core, VS Code
-[documentation](https://code.visualstudio.com/docs) remains largely
-relevant.
+While there is a [guide](https://positron.posit.co/interpreters.html)
+for Positron, the following highlights some of the essential
+functionality. Note that since Positron is built on VS Code’s open
+source core, VS Code [documentation](https://code.visualstudio.com/docs)
+remains largely relevant.
 
 ### Console and Session
 
@@ -110,14 +108,13 @@ establishes your working directory, and the central pane is where you
 type and run code. Two obvious differences are the integrated console
 (in the bottom pane by default) and the session information (in the
 right pane by default), which includes details of the variables and data
-that have been imported.
+that have been loaded.
 
 <img src="figures/positron-01_console-session.png" style="width:90.0%"
 data-fig-align="center" />
 
-You can think of the console as a dedicated terminal where the code
-executes while the terminal (i.e., command line, also in the bottom pane
-by default) functions solely as a terminal with the folder you have open
+The console is where the code executes while the terminal (i.e., command
+line, also in the bottom pane by default) has the folder you have open
 in the explorer *already identified as the working directory*. The
 variables and data in the session information help you keep track of
 what you’re working with.
