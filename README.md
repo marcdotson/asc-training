@@ -168,68 +168,98 @@ and examples you can copy and use.
 
 ## GitHub
 
-GitHub is a powerful collaboration and version control tool. We will be
-using it for *project management*, *writing*, and *coding*.
-
-in conjunction with repositories using my
-[asc-template](https://github.com/marcdotson/asc-template)
-
-### Project Management
-
-By project management I primarily mean keeping track of assigned tasks
-using GitHub’s **Issues**. We can have an ongoing conversation there
-about each specific issue and close it out when its completed or
-resolved. Be sure to tag collaborators you want to see the conversation
-(e.g., `@marcdotson`). Think of this as an email thread or Slack channel
-except all of the conversations are in one place, easily searchable, and
-automatically archived.
-
-### Writing
-
-Think of using GitHub to collaborate on writing as using something like
-Google Docs. It is essential that we document what we’re doing in each
-project as we do it. This is true for a number of reasons.
-
-1.  Writing forces you to think clearly about what you’re doing.
-2.  If you’re coding, think of the associated writing as long-form
-    comments.
-3.  The final product of any project is going to be a paper, so start
-    writing it now.
-
-GitHub supports **Markdown** syntax, which you’re probably more familiar
-with than you might expect from time spent with **Quarto**. We will be
-writing using *parameterized* Quarto documents so we can easily
-reference model output instead of including it manually. See below for
-more on using Quarto.
-
-### Coding
-
-GitHub was created for software development. While we may not actually
-be developing software, we will be importing, wrangling, visualizing,
-and modeling data using code, and it’s going to be essential for
-everyone to be on the same page. Even if you were just working solo, you
-will be collaborating with your past self and you should do yourself a
-favor and impose good version controls on your code.
-
-### Set-Up
-
 To get started, complete Jenny Bryan’s [pre-workshop
 set-up](https://happygitwithr.com/workshops.html?mkt_tok=eyJpIjoiT1RVelptVTNZams0T0dZMiIsInQiOiJlR0orVlVpaHZsRlwveWh5QUJPN2U1Q3BcL0pHVHo5RXJ5UkhabFlwVXM4NlEwcHhRTENQZmVxaEEyNnVLSkRFTTdVa0hyNjk4MkFHYUU1Nkt5VXNtRm9heFM3N3dnUFplZ1V5anpRTWdnWDVscE1lOUR6VzBHaGFQOUFhOGd1QkN3In0=#pre-workshop-set-up).
 This can take up to a few hours, so plan accordingly. Note that the
 following Git and GitHub training draws heavily from Jenny Bryan’s
 training on using Git and GitHub from rstudio::conf(2019).
 
-### GitHub Basics
+GitHub is a powerful collaboration and version control tool. We will be
+using it for *project management*, *coding*, and *writing*.
 
-Now that you’re set up, let’s get started.
+By project management I primarily mean keeping track of assigned tasks
+using GitHub’s issues. We can have an ongoing conversation there about
+each specific issue and close it out when its completed or resolved. Be
+sure to tag collaborators you want to see a specific comment (e.g.,
+`@marcdotson`). Think of this as an email thread or Teams channel except
+all of the conversations are in one place, easily searchable, and
+automatically archived.
 
-#### Just Once: Clone
+GitHub was created for software development. While we may not actually
+be developing software, we will likely be importing, wrangling,
+visualizing, and modeling data using code, and it’s going to be
+essential for everyone to be on the same page. Even if you were just
+working solo, you will be collaborating with your past self and you
+should do yourself a favor and impose good version controls on your
+code.
+
+Think of using GitHub to collaborate on writing as using something like
+Google Docs. It is essential that we document what we’re doing in each
+project as we do it. Writing forces you to think clearly about what
+you’re doing. If the final product of a project needs to include a case
+study or report, we should start writing it now.
+
+GitHub supports Markdown syntax. We will be writing using
+*parameterized* Quarto documents so we can easily reference model output
+instead of including it manually. See below for more on using Quarto.
+
+### Clone
 
 First **clone** one of your repos, or a repo that you’re a collaborator
 on. This is simply creating a local copy of the repo. You do this inside
 RStudio by creating a new project and selecting `Version Control > Git`.
 
-![](figures/clone.png)
+<img src="figures/github_clone.png" style="width:90.0%"
+data-fig-align="center" />
+
+Your project repository will be based on my
+[asc-template](https://github.com/marcdotson/asc-template) to provide
+consistency across projects.
+
+Each project has a similar organization. There are certain limitations
+on the size and type of files that can be pushed to GitHub. There are
+also certain things that shouldn’t be accessible by the public (e.g.,
+data we have a license to access). For these reasons, we have folders
+and files that are pushed to GitHub and those that are not. If you are
+starting a new project, please set up the repo using the
+[repo-template](https://github.com/marcdotson/repo-template).
+
+- `/code` Each script should do something specific (like tidyverse
+  functions), have a descriptive name, and include number prefixes if
+  they are meant to be run in a certain order (e.g., `01_import-data.R`,
+  `02_clean-data.R`) and functions in `/code/src`.
+
+- `/data` While all data live here, only data that are small enough and
+  can be shared publicly will be pushed.
+
+- `/figures` Figures live here, including images (saved as PNG files)
+  and data referenced or used for tables, for use in the `README`,
+  writing, and presentation.
+
+- `/presentations` Slides for presentations (without any PDF knits).
+
+- `/renv` Information on the reproducible environment (see below).
+
+- `/writing` The paper (using the paper template but without any PDF
+  knits) and case studies on specific aspects related to the project
+  (with the output set to `gfm`).
+
+- `.Rprofile` Information on the reproducible environment (see below).
+
+- `README` The abstract and project organization details.
+
+- `renv.lock` Information on the reproducible environment (see below).
+
+- `/output` Output from model runs. These files tend to be too large.
+  They are also something each user can create on their own.
+
+- `/private` A catch-all folder for additional files specific to a
+  project that might not have anywhere else to live.
+
+Note that you can create `/output` and `/private` folders in your local
+clone without worrying about them being pushed. We can further modify
+the `.gitignore` file to add other folders and files that aren’t pushed
+to GitHub.
 
 > [!NOTE]
 >
@@ -275,7 +305,7 @@ RStudio by creating a new project and selecting `Version Control > Git`.
 > for your project by running `python -m venv .venv`. This would create
 > a `/.venv` folder in the working directory.
 
-#### Daily Work: Commit, Push, Pull
+### Commit, Push, and Pull
 
 Now you can open up the RStudio Project in the local, cloned repo and
 work on the project. You have a new Git pane in RStudio that notifies
@@ -302,9 +332,10 @@ files (i.e., `.gitignore` and `.Rprofile`) may try to change on their
 own. When you open the commit dialog, you can click on these modified
 files and hit **revert** to undo these changes.
 
-![](figures/daily-work.png)
+<img src="figures/github_daily-work.png" style="width:90.0%"
+data-fig-align="center" />
 
-#### Collaborating: Branches and Pull Requests
+### Branches and Pull Requests
 
 Because GitHub is very systematic in the way it manages commits, we will
 run into commit errors when multiple people have changed the same thing
@@ -346,11 +377,6 @@ project you want to clean up.
 
 Voila! A cleaned up branch drop down in your Git pane makes things
 easier to navigate.
-
-### Links
-
-- [Happy Git and GitHub for the useR](https://happygitwithr.com)
-- [What They Forgot to Teach You About R](https://rstats.wtf)
 
 ## Using Quarto
 
@@ -553,48 +579,6 @@ $$
   Fieldguide](http://ymlthis.r-lib.org/articles/yaml-fieldguide.html)
 - [LaTeX Paper
   Template](https://github.com/marcdotson/repo-template/blob/main/Writing/paper-template.Rmd)
-
-## Project Organization
-
-Each project has a similar organization. There are certain limitations
-on the size and type of files that can be pushed to GitHub. There are
-also certain things that shouldn’t be accessible by the public (e.g.,
-data we have a license to access). For these reasons, we have folders
-and files that are pushed to GitHub and those that are not. If you are
-starting a new project, please set up the repo using the
-[repo-template](https://github.com/marcdotson/repo-template).
-
-### Pushed to GitHub
-
-- `/code` Each script should do something specific (like tidyverse
-  functions), have a descriptive name, and include number prefixes if
-  they are meant to be run in a certain order (e.g., `01_import-data.R`,
-  `02_clean-data.R`) and functions in `/code/src`.
-- `/data` While all data live here, only data that are small enough and
-  can be shared publicly will be pushed.
-- `/figures` Figures live here, including images (saved as PNG files)
-  and data referenced or used for tables, for use in the `README`,
-  writing, and presentation.
-- `/presentations` Slides for presentations (without any PDF knits).
-- `/renv` Information on the reproducible environment (see below).
-- `/writing` The paper (using the paper template but without any PDF
-  knits) and case studies on specific aspects related to the project
-  (with the output set to `gfm`).
-- `.Rprofile` Information on the reproducible environment (see below).
-- `README` The abstract and project organization details.
-- `renv.lock` Information on the reproducible environment (see below).
-
-### Not Pushed to GitHub
-
-- `/output` Output from model runs. These files tend to be too large.
-  They are also something each user can create on their own.
-- `/private` A catch-all folder for additional files specific to a
-  project that might not have anywhere else to live.
-
-Note that you can create `/output` and `/private` folders in your local
-clone without worrying about them being pushed. We can further modify
-the `.gitignore` file to add other folders and files that aren’t pushed
-to GitHub.
 
 ## Reproducible Environments
 
