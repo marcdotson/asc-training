@@ -3,7 +3,7 @@ title: "ASC Training"
 format: gfm
 ---
 
-This repo is a collection of training resources for students working on projects at the [Analytics Solutions Center](https://huntsman.usu.edu/asc/) (ASC). The ASC collaborates with sponsor organizations to provide students at the [Jon M. Huntsman School of Business](https://huntsman.usu.edu), and [Utah State University](https://www.usu.edu) generally, with real-world experiences working on data-related projects. Each ASC project is mentored by a faculty member from the [Data Analytics and Information Systems Department](https://huntsman.usu.edu/dais/). The following training is provided for students on projects that I mentor.
+This repository is a collection of training resources for students working on projects at the [Analytics Solutions Center](https://huntsman.usu.edu/asc/) (ASC). The ASC collaborates with sponsor organizations to provide students at the [Jon M. Huntsman School of Business](https://huntsman.usu.edu), and [Utah State University](https://www.usu.edu) generally, with real-world experiences working on data-related projects. Each ASC project is mentored by a faculty member from the [Data Analytics and Information Systems Department](https://huntsman.usu.edu/dais/). The following training is provided for students on projects that I mentor.
 
 ## Python
 
@@ -76,91 +76,66 @@ Including a question mark after most any command will open the help (in the righ
 
 ## GitHub
 
-To get started, complete Jenny Bryan's [pre-workshop set-up](https://happygitwithr.com/workshops.html?mkt_tok=eyJpIjoiT1RVelptVTNZams0T0dZMiIsInQiOiJlR0orVlVpaHZsRlwveWh5QUJPN2U1Q3BcL0pHVHo5RXJ5UkhabFlwVXM4NlEwcHhRTENQZmVxaEEyNnVLSkRFTTdVa0hyNjk4MkFHYUU1Nkt5VXNtRm9heFM3N3dnUFplZ1V5anpRTWdnWDVscE1lOUR6VzBHaGFQOUFhOGd1QkN3In0=#pre-workshop-set-up). This can take up to a few hours, so plan accordingly. Note that the following Git and GitHub training draws heavily from Jenny Bryan's training on using Git and GitHub from rstudio::conf(2019).
+Git is a powerful collaboration and [version control system](https://peerj.com/preprints/3159v2/). While it is the industry standard for software development, we can easily adopt the framework for software development to provide structure for any kind of research, ASC projects included. GitHub is an online hosting service where each project lives in its own repository maintained by me as the mentor. After a project is completed, you can copy (i.e., *fork*) the repo. So learning to use Git and GitHub not only aids collaboration, it will ultimately allow you to develop an online portfolio of work.
 
+To get started, you'll need to [register a GitHub account](https://happygitwithr.com/github-acct#github-acct) and install Git [using the command line](https://happygitwithr.com/install-git#install-git) (you can substitute R references with Python and RStudio with Positron) or [downloading the latest source](https://git-scm.com/downloads). Then go ahead and walk through the [Set up Git in VS Code](https://code.visualstudio.com/docs/sourcecontrol/intro-to-git#_set-up-git-in-vs-code) documentation, substituting VS Code with Positron.
 
+Your project repository will be based on my [asc-template](https://github.com/marcdotson/asc-template) to provide consistency across projects. I will need to add you as a collaborator to the project repository. Note that there are certain limitations to the size and type of files that can be hosted (i.e., *pushed* to GitHub). There are also certain things that shouldn't be accessible by the public (e.g., data we are under NDA to access). For these reasons, we have files and folders that will be pushed to GitHub and those that are not. Here's how the project repository is organized:
 
+- `/code` Scripts with prefixes (e.g., `01_import-data.py`, `02_clean-data.py`) and functions in `/code/src`.
+- `/data` Simulated and real data, the latter not pushed.
+- `/figures` PNG images and plots.
+- `/output` Output from model runs, not pushed.
+- `/presentations` Presentation slides.
+- `/private` A catch-all folder for miscellaneous files, not pushed.
+- `/writing` Case studies.
+- `/.venv` Hidden project library, not pushed.
+- `.gitignore` Hidden Git instructions file.
+- `.python-version` Hidden Python version for the reproducible environment.
+- `requirements.txt` Information on the reproducible environment.
 
-GitHub is a powerful collaboration and version control tool. We will be using it for *project management*, *coding*, and *writing*.
+Any file or folder that begins with a period is hidden (i.e., you won't see it in your OS file explorer by default, but you will see it in the explorer in Positron). The `.gitignore` file is what controls which files and folders are pushed.
 
-By project management I primarily mean keeping track of assigned tasks using GitHub's issues. We can have an ongoing conversation there about each specific issue and close it out when its completed or resolved. Be sure to tag collaborators you want to see a specific comment (e.g., `@marcdotson`). Think of this as an email thread or Teams channel except all of the conversations are in one place, easily searchable, and automatically archived.
+### Issues
 
-GitHub was created for software development. While we may not actually be developing software, we will likely be importing, wrangling, visualizing, and modeling data using code, and it's going to be essential for everyone to be on the same page. Even if you were just working solo, you will be collaborating with your past self and you should do yourself a favor and impose good version controls on your code.
-
-Think of using GitHub to collaborate on writing as using something like Google Docs. It is essential that we document what we're doing in each project as we do it. Writing forces you to think clearly about what you're doing. If the final product of a project needs to include a case study or report, we should start writing it now.
-
-GitHub supports Markdown syntax. We will be writing using *parameterized* Quarto documents so we can easily reference model output instead of including it manually. See below for more on using Quarto.
+To stay organized, we will manage the project by keeping track of assigned tasks using GitHub's issues (see the tab at the top of the repository on GitHub). We can have an ongoing conversation there about each specific issue and close them out when a given issue is completed or resolved. Be sure to tag collaborators you want to see a specific comment (e.g., `@marcdotson`). Think of this as an email thread or Teams channel except all of the conversations are in one place, easily searchable, and automatically archived as part of the version control.
 
 ### Clone
 
-First **clone** one of your repos, or a repo that you're a collaborator on. This is simply creating a local copy of the repo. You do this inside RStudio by creating a new project and selecting `Version Control > Git`.
+Once you are a collaborator on the project repository, you can *clone* it. Cloning simply means you're creating a local copy of the repository, though the clone isn't just a copy of the folder. Git still works in the background keeping track of changes and managing the version control. Follow the [Clone a repository locally](https://code.visualstudio.com/docs/sourcecontrol/intro-to-git#_clone-a-repository-locally) to clone the project repository.
 
 ![](figures/github_clone.png){width=90% fig-align="center"}
 
-Your project repository will be based on my [asc-template](https://github.com/marcdotson/asc-template) to provide consistency across projects.
-
-Each project has a similar organization. There are certain limitations on the size and type of files that can be pushed to GitHub. There are also certain things that shouldn't be accessible by the public (e.g., data we have a license to access). For these reasons, we have folders and files that are pushed to GitHub and those that are not. If you are starting a new project, please set up the repo using the [repo-template](https://github.com/marcdotson/repo-template).
-
-- `/code` Each script should do something specific (like tidyverse functions), have a descriptive name, and include number prefixes if they are meant to be run in a certain order (e.g., `01_import-data.R`, `02_clean-data.R`) and functions in `/code/src`.
-- `/data` While all data live here, only data that are small enough and can be shared publicly will be pushed.
-- `/figures` Figures live here, including images (saved as PNG files) and data referenced or used for tables, for use in the `README`, writing, and presentation.
-- `/presentations` Slides for presentations (without any PDF knits).
-- `/renv` Information on the reproducible environment (see below).
-- `/writing` The paper (using the paper template but without any PDF knits) and case studies on specific aspects related to the project (with the output set to `gfm`).
-- `.Rprofile` Information on the reproducible environment (see below).
-- `README` The abstract and project organization details.
-- `renv.lock` Information on the reproducible environment (see below).
-
-- `/output` Output from model runs. These files tend to be too large. They are also something each user can create on their own.
-- `/private` A catch-all folder for additional files specific to a project that might not have anywhere else to live.
-
-Note that you can create `/output` and `/private` folders in your local clone without worrying about them being pushed. We can further modify the `.gitignore` file to add other folders and files that aren't pushed to GitHub.
+Please note that you only need to clone the project repository one time.
 
 ::: {.callout-important title="Reproducible Environments"}
-An environment is composed of the Python, libraries, and library dependencies used for a given project. What makes an environment reproducible is keeping track of *which* version of the Python, libraries, and library dependencies we're using for a given project. While "keeping track" could happen in many different ways, ideally we want to keep track of our environment such that it can be easily *reproduced* on another machine, by you (including future you) or someone else. For our purposes, we need to be sure that everyone working on our ASC project, including anyone at the sponsor organization, can easily reproduce our environment and run the associated code.
+Now that you've cloned the project repository, we can finish setting up a *reproducible environment*. An environment is composed of Python and the libraries (including the library dependencies) used for a given project. What makes an environment reproducible is keeping track of *which* version of Python and the libraries we're using for a given project. While "keeping track" could happen in many different ways, ideally we want to keep track of our environment such that it can be easily *reproduced* on another machine, by you (including future you) or someone else. For our purposes, we need to be sure that everyone working on our project, including anyone at the sponsor organization, can easily reproduce our environment and run the associated code.
 
-Python is a big tent, and there are many ways to manage an environment. I recommend using [pyenv](https://github.com/pyenv/pyenv) to install and maintain Python versions and [venv](https://docs.python.org/3/library/venv.html) to keep track of the version of the libraries and library dependencies and make our project's environment reproducible.
-
-### pyenv
-
-We need to keep track of which version of Python we're using for a number of reasons. Here's two:
+You might be wondering why we need to keep track of Python and library versions. Here's two reasons:
 
 - Not all Python versions are (or were) backwards compatible (i.e., if someone runs our code with a different version of Python, it might not work).
-- Python comes pre-installed on many operating systems since some of the actual operating system uses that specific version of Python. This is a version *should not be used* for any project work.
-
-For these and other reasons (if not the last one alone), we need the ability to maintain multiple versions of Python on the same computer. [pyenv](https://github.com/pyenv/pyenv) is a Python version management tool that is designed to be as *simple* as possible. Though what constitutes "simple" is a matter of experience and your mileage may vary.
-
-### venv
-
-Why do we need to track the versions of the libraries and library dependencies we use?
-
 - Libraries change. Functions, methods, and parameters get modified or deprecated.
-- Just because our project code works now doesn't mean that it will work for someone else or in the future.
 
-Ensuring our project environment is reproducible enables collaboration, future-proofing, and open science.
+In other words, just because our project code works now doesn't mean that it will work for someone else or in the future. Ensuring our project environment is reproducible enables collaboration, future-proofing, and open science. Python is a big tent, and there are many ways to maintain a reproducible environment. I recommend using pyenv and [venv](https://docs.python.org/3/library/venv.html) to keep track of Python and library versions, respectively.
 
-By default, all libraries are installed in a single, global library known as the *system library*. What we need is a *project library*. This helps highlight an important feature of reproducible environments: Each project will have its own project library and thus be *isolated*. If two projects use different versions of the same package, they won't conflict with each other because they'll each have their own project library. Well, not *exactly*. Python employs a global cache to avoid having to install the version of a given library more than once. (Note that if you've installed Python prior to using pyenv, you may have a global cache that is borked. You can run `pip cache purge` in the command line to start fresh.)
+### `.python-version`
 
-The [venv](https://docs.python.org/3/library/venv.html) library comes pre-installed with Python as the default reproducible (or *virtual*, hence the v in venv) environment management tool. It works in two steps. First, we must create a project library. Second, we keep track of the versions of the libraries and library dependencies that we use. However, the easiest way to implement our reproducible environment will require two additional tools: an IDE and version control.
+Just like we can specify a global default version of Python using pyenv, we can also specify a *project* default version of Python using pyenv as part of our reproducible environment. Note that this has already been done as part of the [asc-template](https://github.com/marcdotson/asc-template). However, to do this on your own or to modify an existing project default Python version, open the terminal in Positron after opening the cloned repository in the explorer and run `pyenv local 3.12.4`, assuming you want Python 3.12.4 to be set as the default. This would create (or modify) a `.python-version` file in that directory that specifies the version of Python to use for that project.
 
+This `.python-version` file is a flat text file, meaning it's simple enough to be pushed to GitHub. When you open the cloned repository in Positron, the interpreter selection should change to the Python version you've specified in the `.python-version` file.
 
+### `requirements.txt`
 
+By default, all libraries are installed in a single, global library on your computer known as the *system library*. What we need is a *project library*. This helps highlight an important feature of reproducible environments: Each project will have its own project library and thus be *isolated*. If two projects use different versions of the same package, they won't conflict with each other because they'll each have their own project library. Well, not exactly. Python employs a global cache to avoid having to install the same version of a given library more than once. (Note that if you've installed Python prior to using pyenv, you may have a global cache that is borked. You can run `pip cache purge` in the command line to start fresh.)
 
-Just like we can specify a global default version of Python using pyenv, we can also specify a *local* default version of Python using pyenv as part of our reproducible environment. Note that this has already been done if the project repository was generated using my [asc-template](https://github.com/marcdotson/asc-template).
-
-To create this on your own, or modify an existing `.python-version` file, after navigating to the project's working directory in the command line, you would run `pyenv local 3.12.4`, assuming you want Python 3.12.4 to be set as the default. This would create (or modify) a `.python-version` file in that directory that specifies the version of Python to use for that project.
-
-First, it creates a project library (see `/.venv` below). Second, it maintains a file called `requirements.txt` listing all of the versions of the libaries and library dependencies you've installed in your project library. Here's how it works:
-
-- To add all of these same libraries on a new machine, once you have the project working directory, simply run `pip install -r requirements.txt`.
-- Whenever you install new libraries or decide to update the versions of libraries you use, run `pip freeze > requirements.txt` to update `requirements.txt`.
-
-The `requirements.txt` from venv file, along with the hidden `.python-version` file from pyenv, ensure that we have and can maintain a reproducible environment for our project.
-
-Before the `requirements.txt` file can be created and updated, the project library itself needs to be generated. It is a hidden folder called `/.venv` that is not pushed to GitHub. Note that this has already been done if the project repository was generated using my [asc-template](https://github.com/marcdotson/asc-template).
+The venv library comes pre-installed with Python as the default reproducible (or *virtual*, hence the "v" in venv) environment management tool. It works in two steps. First, we must create a project library. Second, we keep track of the versions of the libraries and library dependencies that we use. Note that this has already been *started* as part of the [asc-template](https://github.com/marcdotson/asc-template). The project library is stored in the `/.venv` folder, a hidden folder listed in the project organization. It isn't a flat file and can get large, so it's not something we push to GitHub. However, the `requirements.txt` file is what keeps track of the library versions and is a flat file that can be pushed to GitHub. To put it another way, we can use `requirements.txt` to recreate the needed project library in our cloned repository in the same way we could use `.python-version` to know what Python version to use. Simply open the terminal in Positron after opening the cloned repository in the explorer and run `pip install -r requirements.txt`.
 
 To create this on your own, after navigating to your project's working directory in the command line, you would create the project library for your project by running `python -m venv .venv`. This would create a `/.venv` folder in the working directory.
+
+Whenever you install new libraries or decide to update the versions of libraries you use, run `pip freeze > requirements.txt` to update `requirements.txt`.
 :::
+
+### Branches
 
 ### Commit, Push, and Pull
 
@@ -178,7 +153,7 @@ Because GitHub is very systematic in the way it manages commits, we will run int
 
 To do your work as a collaborator, create a new branch on GitHub with a short, descriptive name specific to the issue you're working on (e.g., `paper-revision`). When you start a work session, make sure you select the branch you want to work on from the dropdown in the Git pane in RStudio. You can commit, push, and pull as usual to the branch you're working on. This will largely avoid commit errors because each collaborator on a project should be working on a different issue and likely a different branch. When you've completed work on the issue associated with the branch, create a **pull request** on GitHub and tag me (i.e., `@marcdotson`). This allows me to review what you've done, have a conversation with you about it, and eventually pull what you've done into the main branch. I'll then delete the branch specific to that issue. Rinse and repeat.
 
-### Cleaning Up Branches
+### Cleaning Up Branches?
 
 While your daily work won't require you to write any Git code, *eventually* you'll need to clean up the branches you have on your local clone. You'll need to do this from the command line Terminal. I recommend you use the one available in RStudio once you've opened the project you want to clean up.
 
