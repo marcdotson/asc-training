@@ -276,7 +276,7 @@ Please note that you only need to clone the project repository one time.
 > pyenv and [venv](https://docs.python.org/3/library/venv.html) to keep
 > track of Python and library versions, respectively.
 >
-> ### `.python-version`
+> #### `.python-version`
 >
 > Just like we can specify a global default version of Python using
 > pyenv, we can also specify a *project* default version of Python using
@@ -295,7 +295,7 @@ Please note that you only need to clone the project repository one time.
 > Positron, the interpreter selection should change to the Python
 > version you’ve specified in the `.python-version` file.
 >
-> ### `requirements.txt`
+> #### `requirements.txt`
 >
 > By default, all libraries are installed in a single, global library on
 > your computer known as the *system library*. What we need is a

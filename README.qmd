@@ -118,13 +118,13 @@ You might be wondering why we need to keep track of Python and library versions.
 
 In other words, just because our project code works now doesn't mean that it will work for someone else or in the future. Ensuring our project environment is reproducible enables collaboration, future-proofing, and open science. Python is a big tent, and there are many ways to maintain a reproducible environment. I recommend using pyenv and [venv](https://docs.python.org/3/library/venv.html) to keep track of Python and library versions, respectively.
 
-### `.python-version`
+#### `.python-version`
 
 Just like we can specify a global default version of Python using pyenv, we can also specify a *project* default version of Python using pyenv as part of our reproducible environment. Note that this has already been done as part of the [asc-template](https://github.com/marcdotson/asc-template). However, to do this on your own or to modify an existing project default Python version, open the terminal in Positron after opening the cloned repository in the explorer and run `pyenv local 3.12.4`, assuming you want Python 3.12.4 to be set as the default. This would create (or modify) a `.python-version` file in that directory that specifies the version of Python to use for that project.
 
 This `.python-version` file is a flat text file, meaning it's simple enough to be pushed to GitHub. When you open the cloned repository in Positron, the interpreter selection should change to the Python version you've specified in the `.python-version` file.
 
-### `requirements.txt`
+#### `requirements.txt`
 
 By default, all libraries are installed in a single, global library on your computer known as the *system library*. What we need is a *project library*. This helps highlight an important feature of reproducible environments: Each project will have its own project library and thus be *isolated*. If two projects use different versions of the same package, they won't conflict with each other because they'll each have their own project library. Well, not exactly. Python employs a global cache to avoid having to install the same version of a given library more than once. (Note that if you've installed Python prior to using pyenv, you may have a global cache that is borked. You can run `pip cache purge` in the command line to start fresh.)
 
