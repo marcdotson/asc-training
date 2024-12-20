@@ -162,92 +162,52 @@ Note that when a branch is deleted on GitHub, it will still exist in your cloned
 
 ## Quarto
 
-[Quarto](https://quarto.org) is a powerful typesetting tool. Instead of writing in Word or a Google Doc, by using Quarto we can include code blocks, parameterize the document to easily replicate reports, and output our work as Word documents, PDFs, PowerPoint presentations, HTML slide decks, GitHub pages, etc.
+[Quarto](https://quarto.org) is an open-source publishing system where we can combine text along with code and its output. If you've used Jupyter notebooks, Quarto documents will be familiar. However, the most important difference is that the notebook format of a Quarto document is simply a means to and end. Quarto is built using a sophisticated tool called Pandoc that can take whatever we produce within the Quarto document and render it into a Word document, PowerPoint presentation, PDF, Revealjs slide deck, interactive dashboard, website, etc. Browse through the [gallery](https://quarto.org/docs/gallery/) to see what sort of things are possible.
 
-Pandoc is the typesetting software behind the scenes that allows us to take a Quarto document and output it as nearly anything.
+Quarto is a command line tool that is also available as an extension that comes pre-installed with Positron. The [asc-template](https://github.com/marcdotson/asc-template) used to produce our project repository has Quarto documents (e.g., `README.qmd`) used throughout. Whenever you make a change to a Quarto document, render the document into its output and a preview of the rendered document will appear in the viewer (in the right pane by default). If you are using Python within the Quarto document, Quarto will render the output using the Jupyter kernel in the background.
 
-- Bridge the gap between coding environments that you might enjoy and output formats that you need to produce results in to inform decision-making.
-- Does Positron's base install now include Quarto or does it need to be added as an extension?
-- Include a project format file in _quarto.yml to specify project: output-dir: folder-name. Also needed to set the working directory project: execute-dir: project.
-- Note the Visual Editor as an option, especially for markdown syntax (hello tables and citations).
-- quarto convert doc.qmd to convert a Quarto document into a Jupyter notebook and the render with quarto render doc.ipynb.
-- Formatting with CSS-like divs and spans.
-- Fenced div with layout?
-- Parameters specified inside of a cell using #| or still in the YAML header itself? May be different for Python with "#| tags: [parameters]"
-- Pathlib or OS libraries?
-- What about GitHub pages as a format for creating a source website that's hosted entirely on GitHub?
-- [Quarto Gallery](https://quarto.org/docs/gallery/)
-- [Introduction to Quarto](https://posit-conf-2024.github.io/quarto-intro/)
-- [Build-a-Dashboard Workshop](https://posit-conf-2024.github.io/quarto-dashboards/)
-- [Quarto for Academics](https://quarto.org/docs/blog/posts/2023-05-22-quarto-for-academics/)
-- [Quarto questions](https://occasionaldivergences.com/posts/quarto-questions/)
-- [The YAML Fieldguide](http://ymlthis.r-lib.org/articles/yaml-fieldguide.html)
-- [LaTeX Paper Template](https://github.com/marcdotson/repo-template/blob/main/Writing/paper-template.Rmd)
+![](figures/quarto_pandoc.png){width=90% fig-align="center"}
+
+Please note that a Quarto can be used in conjunction with a [Jupyter notebook](https://quarto.org/docs/get-started/hello/jupyter.html) to render into all of these different outputs via Pandoc as well. However, just because we can doesn't mean we should. For most of the code we produce, we should use flat text Python `.py` scripts. We use Quarto when we want to produce a GitHub page, report, presentation, dashboard, etc.
 
 ### YAML
 
-The header at the top of any Quarto document is coded in **YAML** (i.e., Yet Another Markup Language), which follows a simple `key: value` syntax. For most Quarto documents in a project repo, you should set `format: gfm`. When you knit changes to your Quarto document, it will create a separate markdown document using "GitHub Flavored Markdown" that GitHub can parse. For example, the header for this document is:
+The header at the top of any Quarto document is coded in *YAML* (i.e., Yet Another Markup Language), which follows a simple `key: value` syntax. For most Quarto documents in a project repository, you should set `format: gfm`. When you render your Quarto document, it will create a separate markdown document using "GitHub Flavored Markdown" that GitHub can parse. For example, the header for this document is:
 
 ```
 ---
-title: "Research Assistant Training"
+title: "ASC Training"
 format: gfm
 ---
 ```
 
 ### Markdown
 
-Markdown is a simple, generic typesetting syntax. Here are some [Markdown Basics](https://quarto.org/docs/authoring/markdown-basics.html). GitHub recognizes this syntax, including in Issues and pull requests.
+Quarto documents use [markdown](https://quarto.org/docs/authoring/markdown-basics.html), just like in Jupyter notebooks. Markdown is a simple, generic typesetting syntax. Note that GitHub recognizes this syntax, including in issues and pull requests.
+
+Sometimes working with markdown alone can be challenging. Positron includes a visual mode you can access by right-clicking inside any Quarto document. The visual mode includes some GUI options to help you produce the markdown syntax, which can be especially helpful for things like [tables](https://quarto.org/docs/authoring/tables.html) and [citations](https://quarto.org/docs/authoring/citations.html).
 
 ### Code
 
-Quarto allows us to include code blocks and output as part of the document. In other words, this is what we need to create reproducible reports. You can also include R, Python, C++, Stan, and other code blocks and output.
+Quarto allows us to include [code blocks](https://quarto.org/docs/computations/python.html) and output as part of the document. Much like Jupyter notebooks, you can include Julia, Python, and R code (Jupyter stands for *Ju*lia, *Py*thon, and *R*) as well as C++, Stan, and other code blocks and output.
 
-There are a variety of options for each code block. In addition to specifying the language used within the code block, the code block can be given an identifier, can have warnings suppressed, can run without producing output, etc. These options are specified using YAML syntax following the hashpipe operator `#|` within the body of the code block. Any code block option that should apply to the document in its entirety can simply be moved into the header.
+There are a variety of options for each code block. In addition to specifying the language used within the code block, the code block can be given an identifier, can have warnings suppressed, can run without producing output, etc. These options are specified using YAML syntax following the hashpipe operator `#|` within the body of the code block. Any code block YAML that should apply to the document in its entirety can simply be moved into the header YAML.
 
 ### Parameters
 
-Ever have to go through and manually change any data or model output referenced in a report? Not only is this costly and error prone, but it is the definition of non-reproducible. Parameters in Quarto help solve part of this problem.
+Ever have to go through and manually change any data or model output referenced in a report? Not only is this costly and error prone, but it is the definition of non-reproducible. [Parameters](https://quarto.org/docs/computations/parameters.html) in Quarto help solve part of this problem.
 
-Parameters are included as part of the header:
-
-```
----
-title: "Research Assistant Training"
-format: gfm
-params:
-  name: "Analytics"
-  data: "analytics_data.rds"
----
-```
-
-Parameter values can then be referenced in the report (including code blocks) using the parameter name as a list. For example, reference `params$name` within an R code block to print the year specified as a parameter or load the data specified as a parameter by referencing `data <- read_rds(params$data)` within an R code block.
-
-Much like the rule-of-thumb regarding functions (i.e., if you have to copy and paste more than twice, create a function), if you find yourself copying and pasting a value that you may need to update (or change to create a report for a different audience), add it as a parameter.
-
-### Tables and Figures
-
-Using Quarto means we can use Markdown, R, and LaTeX (along with other languages) interchangeably. While we can create a table using LaTeX or Markdown, we can also just print a data frame using `knitr::kable()` and the `{kableExtra}` package. The name of the code block is the given label that can be referenced, for example `#| label: tbl-planets` referenced with `@tbl-planets` (note that the `tbl-` prefix is required). For more table options, see the [kableExtra vignette](https://haozhu233.github.io/kableExtra/awesome_table_in_pdf.pdf).
-
-Similarly, we can include a figure using LaTeX, Markdown, or `knitr`. If `knitr::include_graphics()` is used, the name of the code block is the label that can be referenced, for example `#| label: fig-elephant`. If Markdown `![]()` syntax is used, the same label would be `{#fig-elephant}`. In either case, the figure would be referenced with `@fig-elephant` (note that the `fig-` prefix is required).
-
-When Quarto creates a plot and other figures, by default they are stored in a badly named folder in the same directory as the Quarto document. Instead, we can modify the header to direct where created figures should be saved.
+Parameters for Quarto documents using the Jupyter kernel are included in a flagged code block:
 
 ```
----
-title: "Research Assistant Training"
-format: gfm
-bibliography: references.bib
-params:
-  name: "Analytics"
-  data: "analytics_data.rds"
-knitr:
-  opts_chunk:
-    fig.path: "../figures/"
----
+#| tags: [parameters]
+
+name = 'Analytics'
+mean = 3.2
+data = read_csv('/data/analytics_data.csv')
 ```
 
-The name of the figures will match the label of the code block in which it was created.
+Parameter values can then be referenced in the document (including code blocks) using the parameter name.
 
 ### References
 
@@ -258,9 +218,6 @@ We can specify a bibliography in the header:
 title: "Research Assistant Training"
 format: gfm
 bibliography: references.bib
-params:
-  name: "Analytics"
-  data: "analytics_data.rds"
 ---
 ```
 
@@ -270,7 +227,7 @@ Additionally, each section and sub-section can be referenced by adding a `#sec` 
 
 ### Equations
 
-Equations are now supported when producing a GitHub document. Use `$` around any in-line LaTeX notation or `$$` around equations specified as a separate line. For example, we can reference $y^2$ as well as:
+Use `$` around any in-line LaTeX notation or `$$` around equations specified as a separate line. For example, we can reference $y^2$ as well as:
 
 $$
 y^2.
