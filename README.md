@@ -293,12 +293,12 @@ computer.
 > as part of our reproducible environment. Note that this has already
 > been done as part of the
 > [asc-template](https://github.com/marcdotson/asc-template). However,
-> to do this on your own or to modify an existing project default Python
-> version, go to the terminal in Positron after opening the cloned
-> repository in the explorer and run `pyenv local 3.12.4`, assuming you
-> want Python 3.12.4 to be set as the default. This would create (or
-> modify) a `.python-version` file in that directory that specifies the
-> version of Python to use for the project.
+> to create one on your own or to modify an existing project default
+> Python version, go to the terminal in Positron after opening the
+> cloned repository in the explorer pane and run `pyenv local 3.12.4`,
+> assuming you want Python 3.12.4 to be set as the default. This would
+> create (or modify) a `.python-version` file in that directory that
+> specifies the version of Python to use for the project.
 >
 > This `.python-version` file is simple and small enough to be pushed to
 > GitHub. When you open the cloned project repository in Positron, the
@@ -313,11 +313,12 @@ computer.
 > reproducible environments: Each project will have its own project
 > library and thus be *isolated*. If two projects use different versions
 > of the same package, they won’t conflict with each other because
-> they’ll each have their own project library. Well, not exactly. Python
-> employs a global cache to avoid having to install the same version of
-> a given library more than once. (Note that if you’ve installed Python
-> prior to using pyenv, you may have a global cache that is borked. You
-> can run `pip cache purge` in the command line to start fresh.)
+> they’ll each have their own project library. (Well, not *exactly*.
+> Python employs a global cache to avoid having to install the same
+> version of a given library more than once. The project library will
+> reference the global cache. Note that if you’ve installed Python prior
+> to using pyenv, you may have a global cache that is borked. You can
+> run `pip cache purge` in the command line to start fresh.)
 >
 > The venv library comes pre-installed with Python as the default
 > reproducible (or *virtual*, hence the “v” in venv) environment
@@ -333,13 +334,17 @@ computer.
 >
 > To put it another way, we use `requirements.txt` to recreate the
 > needed project library in our cloned repository in the same way we use
-> `.python-version` to know what Python version to use. Simply go to the
-> terminal in Positron after opening the cloned repository in the
-> explorer and run `python -m venv .venv` to create the `/.venv` project
-> library, followed by `pip install -r requirements.txt` to install the
-> specified library versions. Note that whenever you install new
-> libraries or decide to update the versions of libraries you use, run
-> `pip freeze > requirements.txt` to update `requirements.txt`.
+> `.python-version` to know what Python version to use. To finish
+> setting up the reproducible environment, go to the terminal in
+> Positron after opening the cloned repository in the explorer pane and
+> run `python -m venv .venv` to create the `/.venv` project library.
+> Positron may ask if you want to select this new environment for the
+> workspace folder – select yes. You may also be promted to install the
+> ipykernel library – select install. Now that your project library is
+> created, run `pip install -r requirements.txt` in the terminal to
+> install the specified library versions. Note that whenever you install
+> new libraries or decide to update the versions of libraries you use,
+> run `pip freeze > requirements.txt` to update `requirements.txt`.
 
 ### Branches
 
