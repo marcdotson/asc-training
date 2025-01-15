@@ -6,7 +6,7 @@ working on projects at the [Analytics Solutions
 Center](https://huntsman.usu.edu/asc/) (ASC). The ASC collaborates with
 sponsor organizations to provide students at the [Jon M. Huntsman School
 of Business](https://huntsman.usu.edu), and [Utah State
-University](https://www.usu.edu) generally, with real-world experiences
+University](https://www.usu.edu) at large, with real-world experiences
 working on data-related projects. Each ASC project is mentored by a
 faculty member from the [Data Analytics and Information Systems
 Department](https://huntsman.usu.edu/dais/). The following training is
@@ -67,9 +67,9 @@ start is the latest version of Python that has a stable release (i.e.,
 doesn’t have a `-dev` tag). For example, to install Python 3.12.4, run
 `pyenv install 3.12.4`.
 
-Remember how you shouldn’t use the OS version of Python? You can set the
+Remember how you shouldn’t use the OS version of Python? Set the global
 default version of Python that you’ll use (leaving the OS to do it’s own
-thing). For example, to set Python 3.12.4 as the default global version,
+thing). For example, to set Python 3.12.4 as the global default version,
 run `pyenv global 3.12.4`. If you run `pyenv versions` again you should
 see an asterisk by the global default you specified.
 
@@ -88,17 +88,18 @@ core](https://github.com/microsoft/vscode), Positron combines the
 multilingual extensibility of [VS Code](https://code.visualstudio.com/)
 with essential data tools common to language-specific IDEs.
 
-While Positron is still in active development, it’s more than stable
-enough for our work. After installing Python using pyenv (and specifying
-a non-OS version as a global default), go ahead and
+While Positron is still in active development, it’s stable enough for
+our work. After installing Python using pyenv (and specifying a non-OS
+version as a global default), go ahead and
 [download](https://positron.posit.co/download.html) and install
 Positron.
 
 While there is a [guide](https://positron.posit.co/interpreters.html)
 for Positron, the following highlights some of the essential
 functionality. Note that since Positron is built on VS Code’s open
-source core, VS Code [documentation](https://code.visualstudio.com/docs)
-remains largely relevant.
+source core, VS Code’s excellent
+[documentation](https://code.visualstudio.com/docs) remains largely
+relevant.
 
 ### Console and Session
 
@@ -183,10 +184,15 @@ account](https://happygitwithr.com/github-acct#github-acct) and install
 Git [using the command
 line](https://happygitwithr.com/install-git#install-git) (substituting R
 references with Python and RStudio with Positron) or [downloading the
-latest source](https://git-scm.com/downloads). Then go ahead and walk
-through the [Set up Git in VS
-Code](https://code.visualstudio.com/docs/sourcecontrol/intro-to-git#_set-up-git-in-vs-code)
-documentation (substituting VS Code references with Positron).
+latest source](https://git-scm.com/downloads). You’ll also need to both
+[introduce yourself to Git](https://happygitwithr.com/hello-git) (using
+the email associated with your GitHub account and substituting R
+references with Python and RStudio with Positron) and then authorize
+Positron to use your GitHub credentials (which you *should* be prompted
+to do when cloning your project repository below). Note that when you
+get a prompt from Positron to use `Git: Fetch` automatically, go ahead
+and select yes. This will allow your local Git to be aware of updates,
+including new branches, on GitHub.
 
 Your project repository will be based on my
 [asc-template](https://github.com/marcdotson/asc-template) to provide
@@ -385,16 +391,19 @@ pulling and then pushing sequentially.
 <img src="figures/github_daily-work.png" style="width:90.0%"
 data-fig-align="center" />
 
-To summarize, your daily work using GitHub will look like this:
+To summarize, your daily work in Positron will look like this:
 
-- Checkout the correct branch to work in (where the branch name is in
-  the bottom left corner).
-- Pull changes that have been pushed to GitHub since you last worked on
-  the project (using the sync button in source control or next to the
-  branch name in the bottom left corner).
-- Stage and commit changes with a descriptive message.
-- Push changes (using the sync button in source control or next to the
-  branch name in the bottom left corner).
+- Open the cloned project repository in the explorer pane to set your
+  working directory.
+- Make sure you’ve checked out the correct branch to work in (he branch
+  name you’ve checked out is in the bottom left corner).
+- Pull changes that have been pushed since you last worked on the
+  project using the sync button in the source control pane or next to
+  the branch name in the bottom left corner.
+- Once you’ve done some amount of work, stage and commit changes with a
+  descriptive message in the source control pane.
+- Push changes using the sync button in the source control pane or next
+  to the branch name in the bottom left corner.
 
 ### Pull Requests
 
@@ -405,19 +414,20 @@ on GitHub and tag me (i.e., `@marcdotson`). A pull request is exactly
 what it sounds like – a request submitted to the repository maintainer
 to pull the changes you’ve made. This allows me to review what you’ve
 done, have a conversation with you about it as part of the pull request
-itself (which looks a lot like an issue tied to the branch
-specifically), and eventually pull what you’ve done into `main`. I’ll
-then delete the branch specific to that issue and close out the
-associated issue.
+itself (which looks a lot like an issue tied specifically to the pull
+request), and eventually pull what you’ve done into `main`. I’ll then
+delete the branch specific to that issue and close out the associated
+issue.
 
 Note that when a branch is deleted on GitHub, it will still exist in
 your cloned repository. This isn’t necessarily a problem, though if you
 commit changes to a closed branch it will force the branch open again.
-Again, make sure you’re working on the correct branch. Eventually you’ll
-want to clean up branches that have been merged into `main` and closed
-on GitHub by using `Git: Delete Branch...` via the command palette,
-followed by the branch name. You may also need to use `Git: Fetch` to
-prune tracking branches that are no longer on remote (i.e., on GitHub).
+Again, make sure you’re working on the correct branch. Eventually you
+may want to clean up branches that have been merged into `main` and
+closed on GitHub by using `Git: Delete Branch...` via the command
+palette, followed by the branch name. You may also need to use
+`Git: Fetch` to prune tracking branches that are no longer on remote
+(i.e., on GitHub).
 
 ## Quarto
 
@@ -539,10 +549,16 @@ Additionally, each section and sub-section can be referenced by adding a
 
 ### Equations
 
-Use `$` around any in-line LaTeX notation or `$$` around equations
-specified as a separate line. For example, we can reference $y^2$ as
-well as:
+If you need to include any math, you shouldn’t be surprised that there’s
+a typesetting syntax for that. It’s called
+[LaTeX](https://www.latex-project.org) (pronounced “lah-tech” or
+“lay-tech”) and our primary interest is using it’s [math
+syntax](https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols). Use
+`$` around any in-line LaTeX notation or `$$` around equations specified
+as a separate line. For example, we can reference
+$p(\theta | X) \propto p(X | \theta) \ p(\theta)$ in-line as well as
+centered on its own:
 
 $$
-y^2.
+p(\theta | X) \propto p(X | \theta) \ p(\theta)
 $$
